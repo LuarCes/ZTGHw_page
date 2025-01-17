@@ -11,7 +11,7 @@
 </head>
 
      <header>
-        <a href="<?= base_url(); ?>"><img src="<?= base_url(); ?>assets/images/logo.png" width="80%"></a>
+        <a href="<?= base_url(); ?>"><img src="<?= base_url('assets/images/logo.png') ?>" width="80%"></a>
             <div class="buscador">
                 <input type="search" class="form-control" name="s" id="" placeholder="Buscar producto..." required="">
             </div> 
@@ -21,7 +21,7 @@
                     <li><a href="<?= base_url(); ?>">Inicio</a></li>
                     <li><a href="<?= base_url(); ?>index.php/nuestrosProductos" >Productos</a></li>
                     <li>Contacto</li>
-                    <li><img src="assets/images/carrito.png" width="40%"></li>
+                    <li><img src="<?= base_url('assets/images/carrito.png') ?>" width="40%"></li>
                 </ul>
             </div> 
     </header>

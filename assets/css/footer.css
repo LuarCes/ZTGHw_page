@@ -1,0 +1,37 @@
+footer{
+    width: auto;
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    padding: 1%;
+    padding-left: 4%;
+}
+
+.forma-pago{
+    width: 22%;
+}
+
+.opcPago li{
+    list-style: none;
+    margin-bottom: 10px;
+}
+
+.forma-envio{
+    width: 22%;
+    border-left: 1px black solid;
+    border-right: 1px black solid;
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+.opcEnvio li{
+    list-style: none;
+    margin-bottom: 10px;
+}
+
+
+.forma-contacto{
+    width: 28%;
+    padding-left: 2%;
+}
+

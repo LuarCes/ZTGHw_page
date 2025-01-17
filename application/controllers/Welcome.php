@@ -27,15 +27,21 @@ class Welcome extends CI_Controller {
 	
 	 public function index()
 	{
+		$this->load->model('Articulo');
+		$data['productos'] = $this->Articulo->traerArticulos();
+
+
 		$msj['msj'] = '';
 		$this->load->view('header', $msj);
-		$this->load->view('inicio',$msj);
+		$this->load->view('inicio',$data);
+		$this->load->view('footer');
 	}
 
 	public function bienvenida()
 	{
 		$this->load->view('header');
 		$this->load->view('inicio');
+		$this->load->view('footer');
 	}
 
 }

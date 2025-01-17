@@ -1,9 +1,17 @@
+<?php
+/*esta vista va a recibir $data['articulos']
+por parametros, y se llega a travez del boton de la cabecera
+esto deberia mostrarse en algo mas parecido a una tabla*/
+?>
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="<?= base_url(); ?>assets/css/inicio.css">
+
     <title>ZTG Hardware - Inicio</title>
     
 </head>
@@ -24,7 +32,7 @@
             </div>
             <div class="cuadrado" id="descuento">
                 <img src="assets/images/promocion.png" width="20%">
-                <p>Obtené un 10% de descuento en Efectivo / Transferencia</p>
+                <p>¡Consulta por precios mayoristas!</p>
             </div>
             <div class="cuadrado" id="envios">
                 <img src="assets/images/shipped_411763.png" width="20%">
@@ -86,16 +94,35 @@
        </div>
 
        <div class="destacados">
-        <p>Destacados</p>
-        <p>
-            y aca van los destacados
-        </p>
+        <h2>Destacados</h2>
+        <div class="wrapper">
+            <ul class="carousel">
+                <?php
+                foreach ($productos->result() as $producto) {
+                    // Verificar si el producto es destacado
+                    if ($producto->destacado) {
+                        $url_img = "assets/images/articulos/" . $producto->id . ".png"; ?>
+                        <li class="card">
+                            <img class="card-img-top" src='<?= base_url() . $url_img ?>' alt="Card image">
+                            <div class="card-body">
+                                <h4 class="card-title"> <?= $producto->nombre ?> / <?= $producto->descripcion ?> </h4>
+                                <p class="card-text">Precio : $ <?= $producto->precio ?></p>
+                                <div class="botones">
+                                    <a><button type="button" class="btn-comprar" id="boton">Comprar</button></a>
+                                    <a><button type="button" class="btn-agregar" id="boton">Agregar</button></a>
+                                </div>
+                            </div>
+                        </li>
+                    <?php
+                    }
+                }
+                ?>
+            </ul>
+        </div>
        </div>
 
     </main>
 
-    <footer>
-        Aca va footer
-    </footer>
+    
 </body>
 </html>

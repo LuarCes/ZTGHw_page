@@ -42,9 +42,9 @@ esto deberia mostrarse en algo mas parecido a una tabla*/
                     <div class="card">
                         <img class="card-img-top" src='<?= base_url().$url_img?>' alt="Card image" >
                         <div class="card-body">
-                            <h4 class="card-title"> <?=  $producto->nombre  ?></h4>
-                            <p class="card-text">Descr :  <?=  $producto->descripcion  ?></p>
+                            <h4 class="card-title"> <?=  $producto->nombre  ?> / <?=  $producto->descripcion  ?> </h4>
                             <p class="card-text">Precio : $ <?=  $producto->precio  ?></p>
+                            <div class="botones"><a><button type="button" class="btn-comprar" id="boton">Comprar</button></a><a><button type="button" class="btn-agregar" id="boton">Agregar</button></a></div>
                         </div>
                     </div>
 

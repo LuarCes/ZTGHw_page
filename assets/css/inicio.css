@@ -57,7 +57,7 @@ body{
     margin-bottom: 2%;
 }
 
-.que-buscas h2{
+h2{
     text-align: center;
     padding-bottom: 2%;
 }
@@ -84,3 +84,51 @@ footer{
     width: 100%;
     background-color: aqua;
 }
+
+
+
+/* -------------------------------------  Seccion de destacados  -----------------------------------------------------*/
+
+.wrapper{
+    min-height: 100%;
+    height: 400px;
+    display: flex;
+  
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5%;
+    
+}
+
+.carousel{
+    max-width: 1150px;
+    
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: calc((100% / 5));
+    gap:16px;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+.carousel .card{
+
+    height: 342px;
+    background-color: white;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+.card-img-top {
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+    margin: 0;
+}
+
+
