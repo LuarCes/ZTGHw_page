@@ -11,6 +11,8 @@ esto deberia mostrarse en algo mas parecido a una tabla*/
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="<?= base_url(); ?>assets/css/inicio.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <script src="<?= base_url(); ?>assets/js/script.js" defer></script>
 
     <title>ZTG Hardware - Inicio</title>
     
@@ -27,8 +29,8 @@ esto deberia mostrarse en algo mas parecido a una tabla*/
 
        <div class="small-banner">
             <div class="cuadrado" id="cuotas">
-                <img src="assets/images/bank-card_15742217.png" width="20%">
-                <p>Podés abonar en 6 cuotas sin interés</p>
+                <img src="assets/images/pagos.png" width="20%">
+                <p>Podés elegir entre múltiples medios de pago</p>
             </div>
             <div class="cuadrado" id="descuento">
                 <img src="assets/images/promocion.png" width="20%">
@@ -37,6 +39,10 @@ esto deberia mostrarse en algo mas parecido a una tabla*/
             <div class="cuadrado" id="envios">
                 <img src="assets/images/shipped_411763.png" width="20%">
                 <p>Envíos a todo el país</p>
+            </div>
+            <div class="cuadrado" id="atencion">
+                <img src="assets/images/atencion.png" width="20%">
+                <p>Contactanos Lun-Vier de 14:30 a 19:00hs y Sáb de 13 a 17hs</p>
             </div>
        </div>
 
@@ -96,6 +102,7 @@ esto deberia mostrarse en algo mas parecido a una tabla*/
        <div class="destacados">
         <h2>Destacados</h2>
         <div class="wrapper">
+            <i id="left" class="fa-solid fa-angle-left"></i>
             <ul class="carousel">
                 <?php
                 foreach ($productos->result() as $producto) {
@@ -103,7 +110,7 @@ esto deberia mostrarse en algo mas parecido a una tabla*/
                     if ($producto->destacado) {
                         $url_img = "assets/images/articulos/" . $producto->id . ".png"; ?>
                         <li class="card">
-                            <img class="card-img-top" src='<?= base_url() . $url_img ?>' alt="Card image">
+                            <img class="card-img-top" src='<?= base_url() . $url_img ?>' alt="Card image" draggable="false">
                             <div class="card-body">
                                 <h4 class="card-title"> <?= $producto->nombre ?> / <?= $producto->descripcion ?> </h4>
                                 <p class="card-text">Precio : $ <?= $producto->precio ?></p>
@@ -118,6 +125,7 @@ esto deberia mostrarse en algo mas parecido a una tabla*/
                 }
                 ?>
             </ul>
+            <i id="right" class="fa-solid fa-angle-right"></i>
         </div>
        </div>
 

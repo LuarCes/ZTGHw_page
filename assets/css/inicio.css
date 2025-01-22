@@ -22,6 +22,9 @@ body{
     font-weight: 100;
 }
 
+
+/* -------------------------------------  Banner chiquito  -----------------------------------------------------*/
+
 .small-banner{
     width: 100%;
     height: 200px;
@@ -33,7 +36,7 @@ body{
 }
 
 .cuadrado{
-    width: 20%;
+    width: 14%;
     height: 70%;
     display: flex;
     align-items: center;
@@ -42,11 +45,22 @@ body{
     padding-right: 2%;
 }
 
+.cuadrado img{
+    margin-right: 10%;
+}
+
 #descuento{
     border-left: 1px black solid;
     border-right: 1px black solid;
    
 }
+
+#envios{
+    border-right: 1px black solid;
+}
+
+/* -------------------------------------  Botones buscador  -----------------------------------------------------*/
+
 
 .que-buscas{
     width: 100%;
@@ -76,13 +90,16 @@ h2{
     height: 150px;
     background-color: white;
     padding-top: 2%;
+    cursor: pointer;
 }
 
+.fila th:hover{
+    background: rgb(84, 82, 179);
+    color: #fff;
+}
 
-
-footer{
-    width: 100%;
-    background-color: aqua;
+.fila th:hover img {
+    filter: invert(1);
 }
 
 
@@ -93,11 +110,39 @@ footer{
     min-height: 100%;
     height: 400px;
     display: flex;
-  
+    position: relative;
     justify-content: center;
     align-items: center;
     margin-bottom: 5%;
     
+}
+
+.wrapper i{
+    width: 50px;
+    height: 50px;
+    background: #fff;
+    text-align: center;
+    line-height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    position: absolute;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+}
+
+.wrapper i:hover{
+    background: rgb(84, 82, 179);
+    color: #fff;
+}
+
+.wrapper i:first-child{
+    left:  -22px;
+    margin-left: 18%;
+
+}
+
+.wrapper i:last-child{
+    right:  -22px;
+    margin-right: 18%;
 }
 
 .carousel{
@@ -110,6 +155,8 @@ footer{
     overflow: hidden;
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
+    scroll-behavior: smooth; 
 }
 
 .carousel .card{
@@ -124,6 +171,15 @@ footer{
 }
 
 
+.carousel.dragging .card{
+    cursor: grab;
+    user-select: none;
+}
+
+.carousel.dragging{
+    scroll-behavior: auto;
+}
+
 .card-img-top {
     width: 140px;
     height: 140px;
@@ -132,3 +188,14 @@ footer{
 }
 
 
+@media screen and (max-width: 900px) {
+    .wrapper .carousel {
+        grid-auto-columns: calc((100%/2)-9px);
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .wrapper .carousel {
+        grid-auto-columns: 100%;
+    }
+}
