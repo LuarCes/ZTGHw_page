@@ -96,6 +96,8 @@ h2{
 .fila th:hover{
     background: rgb(84, 82, 179);
     color: #fff;
+    translate: 0 -5px;
+    box-shadow: 0 10px 5px rgba(0,0,0,0.1);
 }
 
 .fila th:hover img {

@@ -13,6 +13,7 @@ esto deberia mostrarse en algo mas parecido a una tabla*/
     <link rel="stylesheet" href="<?= base_url(); ?>assets/css/inicio.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
     <script src="<?= base_url(); ?>assets/js/script.js" defer></script>
+    <script src="<?= base_url(); ?>assets/js/cartService.js" defer></script>
 
     <title>ZTG Hardware - Inicio</title>
     

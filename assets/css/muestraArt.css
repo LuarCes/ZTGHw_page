@@ -143,3 +143,34 @@
     margin-left: 3%;
     background-color: #ffffff;
 }
+
+/*------------------------- Filtros ------------------------*/
+.filters {
+    width: 20%;
+
+  }
+  
+  .filter-group {
+    /* Estilos para cada grupo de filtros */
+  }
+  
+  .filter-group ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .filter-group li {
+    width: 40%;
+    margin-bottom: 5px;
+    background-color: rgb(182,120,255);
+    text-align: center;
+  }
+  
+  .filter-group a {
+    text-decoration: none;
+    color: #333;
+  }
+  
+  .filter-group a.active {
+    font-weight: bold;
+  }

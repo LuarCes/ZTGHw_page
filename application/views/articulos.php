@@ -14,6 +14,9 @@ esto deberia mostrarse en algo mas parecido a una tabla*/
     <link rel="stylesheet" href="<?= base_url(); ?>assets/css/muestraArt.css">
     <link rel="stylesheet" href="<?= base_url(); ?>assets/css/pagCargas.css">
     <link rel="stylesheet" href="<?= base_url(); ?>assets/css/inicio.css">
+    <script src="<?= base_url(); ?>assets/js/filtro.js" defer></script>
+    <script src="<?= base_url(); ?>assets/js/cartService.js" defer></script>
+
     <title>ZTGHardware - Articulos</title>
 </head>
   
@@ -22,29 +25,36 @@ esto deberia mostrarse en algo mas parecido a una tabla*/
     <div class="body-catalogo">
 
         <div class="bannerProd">
-            <img src="<?= base_url(); ?>assets/images/banner1.png" width='100%' alt="Banner de la página">
-            <div class="titulo" id="deBanner">
-                <h3 id="muestraTitulo" align="center">Productos</h3>
-            </div>
+            
         </div>
 
 
         <div class="contenido" >
-            <div class="categorias">
-                Aca van la lista de filtros
+
+            <div class="filters">
+                <h2>Filtros</h2>
+                <div class="filter-group">
+                    <h3>Ordenar por:</h3>
+                    <ul>
+                    <li><button id="desc" class="ordenar">Mayor precio</button></li>
+                    <li><button id="asc" class="ordenar">Menor precio</button></li>
+                    <li><button id="name" class="ordenar">Nombre</button></li>
+                    </ul>
+                </div>
+            
             </div>
 
-            <div class="donde-prod">
+            <div class="donde-prod" id="products-container">
                 <?php
                     foreach($productos->result() as $producto){
                         $url_img = "assets/images/articulos/".$producto->id.".png"; ?>
 
-                    <div class="card">
+                    <div class="card" data-price="<?= $producto->precio ?>">
                         <img class="card-img-top" src='<?= base_url().$url_img?>' alt="Card image" >
                         <div class="card-body">
                             <h4 class="card-title"> <?=  $producto->nombre  ?> / <?=  $producto->descripcion  ?> </h4>
                             <p class="card-text">Precio : $ <?=  $producto->precio  ?></p>
-                            <div class="botones"><a><button type="button" class="btn-comprar" id="boton">Comprar</button></a><a><button type="button" class="btn-agregar" id="boton">Agregar</button></a></div>
+                            <div class="botones"><a><button type="button" class="btn-comprar" id="boton">Comprar</button></a><a><button type="button" class="btn-agregar" id="boton" onclick='agregarAlCarrito(<?= json_encode($producto) ?>)'>Agregar</button></a></div>
                         </div>
                     </div>
 

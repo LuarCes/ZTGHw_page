@@ -21,7 +21,7 @@
                     <li><a href="<?= base_url(); ?>">Inicio</a></li>
                     <li><a href="<?= base_url(); ?>index.php/nuestrosProductos" >Productos</a></li>
                     <li>Contacto</li>
-                    <li><img src="<?= base_url('assets/images/carrito.png') ?>" width="40%"></li>
+                    <li><a href="<?= base_url(); ?>index.php/verCarrito" ><img src="<?= base_url('assets/images/carrito.png') ?>" width="40%"><span class="cuenta-carrito">0</span></a></li>
                 </ul>
             </div> 
     </header>

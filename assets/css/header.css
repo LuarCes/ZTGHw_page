@@ -6,6 +6,7 @@ header{
     align-items: center;
     display: flex;
     border-bottom: white solid;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 header a{
@@ -43,6 +44,16 @@ header a{
 }
 
 
-
+.cuenta-carrito{
+    color: black;
+    background-color: white;
+    border-radius: 100%;
+    display: inline-block;
+    width: 20px;
+    line-height: 20px;
+    aspect-ratio: 1;
+    text-align: center;
+ 
+}
 
 	
