@@ -21,6 +21,20 @@ class AbmCarrito extends CI_Controller {
 		$this->load->view('footer');
 	}
 
+	public function vistaForm()
+	{
+		$this->load->model('Carrito');
 
+
+		$msj['msj'] = '';
+		$this->load->view('header', $msj);
+		$this->load->view('formCompra');
+		$this->load->view('footer');
+	}
+
+	public function enviarForm(){
+
+		
+    }
 
 }

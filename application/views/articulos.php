@@ -1,7 +1,5 @@
 <?php
-/*esta vista va a recibir $data['articulos']
-por parametros, y se llega a travez del boton de la cabecera
-esto deberia mostrarse en algo mas parecido a una tabla*/
+    $categoriaSeleccionada = isset($_GET['categoria']) ? $_GET['categoria'] : null;
 ?>
 
 <!DOCTYPE html>
@@ -34,11 +32,22 @@ esto deberia mostrarse en algo mas parecido a una tabla*/
             <div class="filters">
                 <h2>Filtros</h2>
                 <div class="filter-group">
+                    <button ><a href="<?= base_url(); ?>index.php/nuestrosProductos" >Todos los productos</a></button>
                     <h3>Ordenar por:</h3>
                     <ul>
                     <li><button id="desc" class="ordenar">Mayor precio</button></li>
                     <li><button id="asc" class="ordenar">Menor precio</button></li>
                     <li><button id="name" class="ordenar">Nombre</button></li>
+                    </ul>
+                </div>
+
+                <div class="category-group">
+                    <h3>Categorias:</h3>
+                    <ul>
+                    <li><button id="auri" class="categorizar">Auriculares</button></li>
+                    <li><button id="mouse" class="categorizar">Mouse</button></li>
+                    <li><button id="teclado" class="categorizar">Teclado</button></li>
+                    <li><button id="camara" class="categorizar">Camara</button></li>
                     </ul>
                 </div>
             
@@ -49,18 +58,19 @@ esto deberia mostrarse en algo mas parecido a una tabla*/
                     foreach($productos->result() as $producto){
                         $url_img = "assets/images/articulos/".$producto->id.".png"; ?>
 
-                    <div class="card" data-price="<?= $producto->precio ?>">
+                    <div class="card" data-price="<?= $producto->precio ?>" data-category="<?= $producto->categoria ?>">
                         <img class="card-img-top" src='<?= base_url().$url_img?>' alt="Card image" >
                         <div class="card-body">
                             <h4 class="card-title"> <?=  $producto->nombre  ?> / <?=  $producto->descripcion  ?> </h4>
                             <p class="card-text">Precio : $ <?=  $producto->precio  ?></p>
-                            <div class="botones"><a><button type="button" class="btn-comprar" id="boton">Comprar</button></a><a><button type="button" class="btn-agregar" id="boton" onclick='agregarAlCarrito(<?= json_encode($producto) ?>)'>Agregar</button></a></div>
+                            <button type="button" class="btn-agregar" id="boton" onclick='agregarAlCarrito(<?= json_encode($producto) ?>)'>Agregar</button>
                         </div>
                     </div>
 
                 <?php
                 }?>
             </div>
+
 
           
 

@@ -19,6 +19,16 @@ class AbmArticulos extends CI_Controller {
         $this->load->view('footer');
 	}
 
+    public function mostrarCategoria($categoria){
+        $this->load->model('Articulo');
+        $data['productos'] = $this->Articulo->traerCategoria($categoria);
+
+        $msj['msj'] = '';
+        $this->load->view('header',$msj);
+		$this->load->view('articulos', $data);
+        $this->load->view('footer');
+	}
+
    
 
 }

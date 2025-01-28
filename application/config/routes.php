@@ -53,6 +53,10 @@ $route['default_controller'] = 'welcome';
 $route['bienvenida'] = 'Welcome/bienvenida';
 $route['nuestrosProductos'] = 'AbmArticulos/mostrarArticulos';
 $route['verCarrito'] = 'AbmCarrito/vistaCarrito';
+$route['verForm'] = 'AbmCarrito/vistaForm';
+$route['enviarForm'] = 'AbmCarrito/enviarForm';
+$route['contacto'] = 'Welcome/contacto';
+$route['nuestrosProductos/(:any)'] = 'AbmArticulos/mostrarCategoria/$1';
 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

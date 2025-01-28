@@ -7,3 +7,33 @@
     width: 12%;
     background-color: rgb(202, 202, 202);
 }
+
+.contenedor-form{
+    width: 100%;
+    background-color: rgb(226, 226, 226);
+    display: flex;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.datos-comprador{
+    width: 50%;
+    
+    padding: 5%;
+}
+
+.resumen-compra{
+    width: 30%;
+    background-color: white;
+}
+
+
+/*---------------------- CSS del form --------------------------*/
+h3{
+    background-color: white;
+}
+
+.primario{
+    width: 90%;
+    display: flex;
+    justify-content: center;
+}

@@ -5,7 +5,7 @@ header{
     background: linear-gradient(90deg, rgba(0,0,0,1) 20%, rgba(70,69,155,1) 66%, rgba(182,120,255,1) 90%);    
     align-items: center;
     display: flex;
-    border-bottom: white solid;
+
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
@@ -57,3 +57,6 @@ header a{
 }
 
 	
+a{
+    text-decoration: none;  
+}

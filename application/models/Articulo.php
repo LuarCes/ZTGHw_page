@@ -23,7 +23,11 @@ class Articulo extends CI_Model {
          return $consulta->row();
     }
     
-   
+    function traerCategoria($categoria){
+        $consulta = $this->db->query("SELECT * FROM productos WHERE categoria = '$categoria'");
+        return $consulta;
+   }
+    
 
 
 }

@@ -44,4 +44,13 @@ class Welcome extends CI_Controller {
 		$this->load->view('footer');
 	}
 
+	public function contacto()
+	{
+		$this->load->view('header');
+		$this->load->view('contacto');
+		$this->load->view('footer');
+	}
+
+	
+
 }

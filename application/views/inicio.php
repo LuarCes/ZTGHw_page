@@ -13,6 +13,7 @@ esto deberia mostrarse en algo mas parecido a una tabla*/
     <link rel="stylesheet" href="<?= base_url(); ?>assets/css/inicio.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
     <script src="<?= base_url(); ?>assets/js/script.js" defer></script>
+    <script src="<?= base_url(); ?>assets/js/categorizar.js" defer></script>
     <script src="<?= base_url(); ?>assets/js/cartService.js" defer></script>
 
     <title>ZTG Hardware - Inicio</title>
@@ -23,8 +24,13 @@ esto deberia mostrarse en algo mas parecido a una tabla*/
 
     <main>
         <nav class="banner">
-            <div class="banner-img">
+            <div class="capa">
                
+            </div>
+            <div class="info">
+                <h1 class="titulo-banner">Bienvenidos a ZTG Hardware</h1>
+                <p>Somos una distribuidora marplatense con el objetivo de ofrecerte los mejores precios y productos del mercado</p> 
+                <p>¡Consulta nuestro catálogo mayorista y arma tu PC ideal!</p>
             </div>
        </nav>
 
@@ -54,45 +60,45 @@ esto deberia mostrarse en algo mas parecido a una tabla*/
                     <tr class="fila" >
                         <th>                       
                             <img src="assets/images/auriculares.png" width="20%">
-                            <p>Auriculares</p>
+                            <p><a href="<?= base_url(); ?>index.php/nuestrosProductos/Auriculares" id="auri" class="categorizar">Auriculares</a></p>
                         </th>
                         <th>
                             <img src="assets/images/raton.png" width="20%">
-                            <p>Mouse</p>
+                            <p><a href="<?= base_url(); ?>index.php/nuestrosProductos/Mouse" id="mouse" class="categorizar">Mouse</a></p>
                         </th>
                         <th>
                             <img src="assets/images/teclado.png" width="20%">
-                            <p>Teclado</p>
+                            <p><a href="<?= base_url(); ?>index.php/nuestrosProductos/Teclado" id="teclado" class="categorizar">Teclado</a></p>
                         </th>
                         <th>
                             <img src="assets/images/camara-web.png" width="20%">
-                            <p>Cámara</p>
+                            <p><a href="<?= base_url(); ?>index.php/nuestrosProductos/Camara" id="Camara" class="categorizar">Cámara</a></p>
                         </th>
                         <th>
                             <img src="assets/images/parlante.png" width="20%">
-                            <p>Parlantes</p>
+                            <p><a href="<?= base_url(); ?>index.php/nuestrosProductos/Parlante" id="parlante" class="categorizar">Parlantes</a></p>
                         </th>
                     </tr>
                     <tr class="fila">
                         <th>
                             <img src="assets/images/consola-de-juego.png" width="20%">
-                            <p>Consola</p>
+                            <p><a href="<?= base_url(); ?>index.php/nuestrosProductos/Consola" id="consola" class="categorizar">Consola</a></p>
                         </th>
                         <th>
                             <img src="assets/images/estacion-de-juegos.png" width="20%">
-                            <p>Videojuegos</p>
+                            <p><a href="<?= base_url(); ?>index.php/nuestrosProductos/Juego" id="Juego" class="categorizar">Videojuegos</a></p>
                         </th>
                         <th>
                             <img src="assets/images/control.png" width="20%">
-                            <p>Joystick</p>
+                            <p><a href="<?= base_url(); ?>index.php/nuestrosProductos/Joystick" id="Joystick" class="categorizar">Joystick</a></p>
                         </th>
                         <th>
                             <img src="assets/images/avatar.png" width="20%">
-                            <p>Fundas</p>
+                            <p><a href="<?= base_url(); ?>index.php/nuestrosProductos/Fundas" id="mouse" class="categorizar">Fundas</a></p>
                         </th>
                         <th>
                             <img src="assets/images/mas.png" width="20%">
-                            <p>Otros</p>
+                            <p><a href="<?= base_url(); ?>index.php/nuestrosProductos/Otros" id="otros" class="categorizar">Otros</a></p>
                         </th>
                     </tr>
                   </table>
@@ -116,8 +122,7 @@ esto deberia mostrarse en algo mas parecido a una tabla*/
                                 <h4 class="card-title"> <?= $producto->nombre ?> / <?= $producto->descripcion ?> </h4>
                                 <p class="card-text">Precio : $ <?= $producto->precio ?></p>
                                 <div class="botones">
-                                    <a><button type="button" class="btn-comprar" id="boton">Comprar</button></a>
-                                    <a><button type="button" class="btn-agregar" id="boton">Agregar</button></a>
+                                    <button type="button" class="btn-agregar" id="boton" >Agregar</button>
                                 </div>
                             </div>
                         </li>

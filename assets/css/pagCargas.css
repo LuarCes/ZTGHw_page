@@ -167,7 +167,7 @@
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    background: crimson;
+    background: rgb(182,120,255);
     color: #ffffff;
     border-radius: 8px;
     margin-top: 30px;
@@ -175,8 +175,9 @@
   }
   
   .form button:hover, .form button:focus {
-    background: rgb(185, 185, 65);
+    background: rgb(196, 196, 196);
     color:black;
+    border: 1px rgb(182,120,255);
   }
   
   table {
@@ -210,11 +211,13 @@
   }
   
   #boton{
-  background: crimson;
+  background: rgb(182,120,255);
   color: white;
   } 
   
   #boton:hover{
-  background: yellow;
-  color: black;
+    background: rgb(218, 218, 218);
+    color:black;
+    border: 3px solid rgb(182,120,255);
+    cursor: pointer;
   } 

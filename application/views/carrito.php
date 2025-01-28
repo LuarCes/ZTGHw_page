@@ -46,7 +46,12 @@ esto deberia mostrarse en algo mas parecido a una tabla*/
    </div>
 
     <div>
-        <p>Finalizar compra</p>
+        <p> Total a pagar : </p>
+    </div>
+
+
+    <div>
+        <button><a href="<?= base_url(); ?>index.php/verForm">Finalizar compra</a></button>
         
     </div>
 
