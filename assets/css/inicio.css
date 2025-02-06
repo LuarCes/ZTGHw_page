@@ -142,7 +142,7 @@ h2{
 
 .wrapper{
     min-height: 100%;
-    height: 400px;
+    height: 500px;
     display: flex;
     position: relative;
     justify-content: center;
@@ -169,7 +169,7 @@ h2{
 }
 
 .wrapper i:first-child{
-    left:  -22px;
+    left:  -20px;
     margin-left: 18%;
 
 }
@@ -181,11 +181,10 @@ h2{
 
 .carousel{
     max-width: 1150px;
-    
     display: grid;
     grid-auto-flow: column;
-    grid-auto-columns: calc((100% / 5));
-    gap:16px;
+    grid-auto-columns: calc((100% / 4.22));
+    gap:15px;
     overflow: hidden;
     margin: 0;
     padding: 0;
@@ -194,15 +193,21 @@ h2{
 }
 
 .carousel .card{
-
-    height: 342px;
+    
+    height: 450px;
     background-color: white;
     list-style: none;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     flex-direction: column;
+    border-radius: 5%;
+    overflow: hidden; 
+    padding: 0; 
+    margin: 0; 
 }
+
+
 
 
 .carousel.dragging .card{
@@ -215,10 +220,40 @@ h2{
 }
 
 .card-img-top {
-    width: 140px;
-    height: 140px;
+    width: 100%;
+    height: 270px;
     object-fit: cover;
+    display: block;
     margin: 0;
+    border-bottom: 5px solid rgb(182,120,255);
+}
+
+
+#card-body-inicio{
+    flex-grow: 1; /* Ocupa el espacio restante */
+    padding: 0;
+    padding-left: 5%;
+    padding-right: 4%;
+    padding-bottom: 5%;
+    display: flex; 
+    flex-direction: column; 
+    justify-content: space-between; 
+    text-align: center;
+}
+
+#h4-inicio{
+    height: 50%;
+
+}
+
+#texto-inicio{
+    
+    margin-top: -20%;
+}
+
+#boton-inicio{
+    height: 50px;
+    margin-left: -10%;
 }
 
 
@@ -233,3 +268,34 @@ h2{
         grid-auto-columns: 100%;
     }
 }
+
+.btn-agregar{
+    border: 1px solid rgb(182,120,255);
+    outline: none;
+    border-radius: 0;
+    padding: 15px 15px;
+    font-size: 14px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    background: rgb(182,120,255);
+    color: #ffffff;
+    border-radius: 10%;
+    margin-top: 5px;
+    margin-left: 10%;
+    margin-bottom: 20px;
+}
+
+.btn-agregar:hover{
+    background: rgb(196, 196, 196);
+    color:black;
+    border: 1px solid rgb(182,120,255);
+    cursor: pointer;
+}
+
+
+
+
+/*---------------------------------------- Cartas -----------------------------------------*/
+
+

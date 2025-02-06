@@ -8,13 +8,6 @@ let startX, startScrollLeft;
 
 let cardPerView = Math.round(carousel.offsetWidth / firstCardWidth);
 
-carouselChildrens.slice(-cardPerView).reverse().forEach(card => {
-    carousel.insertAdjacentHTML("afterbegin", card.outerHTML);
-});
-
-carouselChildrens.slice(0, cardPerView).forEach(card => {
-    carousel.insertAdjacentHTML("beforeend", card.outerHTML);
-});
 
 
 arrowBtns.forEach(btn => {
@@ -41,9 +34,11 @@ const dragStop = () => {
 }
 
 const infiniteScroll = () => {
-    if(carousel.scrollLeft === 0){
-        carousel.scrollLeft = carousel.scrollWidth - (2*carousel.offsetWidth);
-    } else if (Math.ceil(carousel.scrollLeft) === carousel.scrollWidth - carousel.offsetWidth){
+    const maxScrollLeft = carousel.scrollWidth - carousel.offsetWidth;
+
+    if(carousel.scrollLeft <= 0){
+        carousel.scrollLeft = 0;
+    } else if (Math.ceil(carousel.scrollLeft) >= maxScroll){
         carousel.scrollLeft = carousel.offsetWidth;
     }
 }

@@ -7,11 +7,15 @@
 
 .cuadrante{
     background-color: white;
-    width: 40%;
-    height: 600px;
-    border-radius: 8%;
-    padding-top: 2%;
-    padding-left: 4%;
+    justify-content: center;
+    align-items: center;
+    border-radius: 16px;
+    padding: 4%;
+    padding-left: 5%;
+}
+
+#info-nosotros{
+    width: 70%;
 }
 
 .img-cont{
@@ -21,11 +25,120 @@
 }
 
 .desc-nos{
+    width: 90%;
     padding-right: 4%;
 }
 
 
 
-.mapouter{
-    margin-left: -10%;   
+.mapouter-contact{
+    position: relative;
+    width: 90%;
+    max-width: 600px;
+    height: 300px;
+    margin: 0 auto;
+    margin-left: -0.5%;
+    border-radius: 8px;
+    overflow: hidden;   
 }
+
+
+.atencion{
+    margin-top: 8%;
+    text-align: center;
+    font-size: 20px;
+}
+
+
+#info-contacto{
+    
+}
+
+/*-------------------------- form -------------------------------------*/
+form {
+    width: 80%;
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1%;
+}
+
+form label {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #555555;
+    margin-bottom: 0.3rem;
+}
+
+form input,
+form textarea {
+    width: 70%;
+    padding: 0.5rem;
+    border: 1px solid #dddddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    color: #333333;
+    margin-bottom: 0.25rem;
+}
+
+form input::placeholder,
+form textarea::placeholder {
+    color: #aaaaaa;
+}
+
+form button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    align-self: center; 
+    width: auto; 
+}
+
+form button:hover {
+    background-color: #0056b3;
+}
+
+
+
+/*--------------------------- Asesores----------------------------------*/
+
+.tarj-asesores{
+    width: 90%;
+    display: flex;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    gap:2.5rem;
+    justify-content: center;
+    padding-left: 2%;
+}
+
+.asesor{
+    width: 35%;
+    height: 250px;
+    text-align: center;
+    border: 1px solid black;
+    transition: border-color 0.3s ease;
+    transition: box-shadow 0.3s ease;
+    border-radius: 10%;
+    padding: 4%;
+}
+
+.asesor img{
+    margin-left: 0;
+}
+
+.asesor:hover{
+    cursor: pointer;
+    border-color: rgb(182,120,255);
+    box-shadow: 0px 10px 5px -1px rgba(84, 82, 179,0.43);
+    -webkit-box-shadow: 0px 10px 5px -1px rgba(84, 82, 179,0.43);
+    -moz-box-shadow: 0px 10px 5px -1px rgba(84, 82, 179,0.43);
+}
+

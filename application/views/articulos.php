@@ -32,12 +32,11 @@
             <div class="filters">
                 <h2>Filtros</h2>
                 <div class="filter-group">
-                    <button ><a href="<?= base_url(); ?>index.php/nuestrosProductos" >Todos los productos</a></button>
+                    <button class="todos-prod"><a href="<?= base_url(); ?>index.php/nuestrosProductos" >Todos los productos</a></button>
                     <h3>Ordenar por:</h3>
                     <ul>
-                    <li><button id="desc" class="ordenar">Mayor precio</button></li>
-                    <li><button id="asc" class="ordenar">Menor precio</button></li>
-                    <li><button id="name" class="ordenar">Nombre</button></li>
+                        <li><button id="desc" class="ordenar">Mayor precio</button></li>
+                        <li><button id="asc" class="ordenar">Menor precio</button></li>
                     </ul>
                 </div>
 
@@ -48,6 +47,12 @@
                     <li><button id="mouse" class="categorizar">Mouse</button></li>
                     <li><button id="teclado" class="categorizar">Teclado</button></li>
                     <li><button id="camara" class="categorizar">Camara</button></li>
+                    <li><button id="parlantes" class="categorizar">Parlantes</button></li>
+                    <li><button id="consola" class="categorizar">Consola</button></li>
+                    <li><button id="vj" class="categorizar">Videojuegos</button></li>
+                    <li><button id="joystick" class="categorizar">Joystick</button></li>
+                    <li><button id="fundas" class="categorizar">Fundas</button></li>
+                    <li><button id="otros" class="categorizar">Otros</button></li>
                     </ul>
                 </div>
             
@@ -61,8 +66,10 @@
                     <div class="card" data-price="<?= $producto->precio ?>" data-category="<?= $producto->categoria ?>">
                         <img class="card-img-top" src='<?= base_url().$url_img?>' alt="Card image" >
                         <div class="card-body">
-                            <h4 class="card-title"> <?=  $producto->nombre  ?> / <?=  $producto->descripcion  ?> </h4>
-                            <p class="card-text">Precio : $ <?=  $producto->precio  ?></p>
+                            <h4 class="card-title"> <?=  $producto->nombre  ?> </h4>
+                            <p class="card-text">Precio : $ <?=  $producto->precio  ?></p> 
+                        </div>
+                        <div class="div-btn">
                             <button type="button" class="btn-agregar" id="boton" onclick='agregarAlCarrito(<?= json_encode($producto) ?>)'>Agregar</button>
                         </div>
                     </div>

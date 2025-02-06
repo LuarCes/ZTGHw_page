@@ -76,7 +76,7 @@ esto deberia mostrarse en algo mas parecido a una tabla*/
                         </th>
                         <th>
                             <img src="assets/images/parlante.png" width="20%">
-                            <p><a href="<?= base_url(); ?>index.php/nuestrosProductos/Parlante" id="parlante" class="categorizar">Parlantes</a></p>
+                            <p><a href="<?= base_url(); ?>index.php/nuestrosProductos/Parlante" id="parlantes" class="categorizar">Parlantes</a></p>
                         </th>
                     </tr>
                     <tr class="fila">
@@ -116,13 +116,13 @@ esto deberia mostrarse en algo mas parecido a una tabla*/
                     // Verificar si el producto es destacado
                     if ($producto->destacado) {
                         $url_img = "assets/images/articulos/" . $producto->id . ".png"; ?>
-                        <li class="card">
-                            <img class="card-img-top" src='<?= base_url() . $url_img ?>' alt="Card image" draggable="false">
-                            <div class="card-body">
-                                <h4 class="card-title"> <?= $producto->nombre ?> / <?= $producto->descripcion ?> </h4>
-                                <p class="card-text">Precio : $ <?= $producto->precio ?></p>
-                                <div class="botones">
-                                    <button type="button" class="btn-agregar" id="boton" >Agregar</button>
+                        <li class="card" id="inicio-card">
+                            <img class="card-img-top" id="img-inicio" src='<?= base_url() . $url_img ?>' alt="Card image" draggable="false">
+                            <div class="card-body" id="card-body-inicio">
+                                <h4 class="card-title" id="h4-inicio"> <?= $producto->nombre ?> </h4>
+                                <p class="card-text" id="texto-inicio">Precio : $ <?= $producto->precio ?></p>
+                                <div class="botones" id="boton-inicio">
+                                    <button type="button" class="btn-agregar" id="boton" onclick='agregarAlCarrito(<?= json_encode($producto) ?>)'>Agregar</button>
                                 </div>
                             </div>
                         </li>
