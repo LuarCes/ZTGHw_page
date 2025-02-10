@@ -1,7 +1,7 @@
 .tabla_carrito{
     width: 100%;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    margin-top: 4%;
+    margin-top: 2%;
     align-items: center;
     justify-content: center;
     padding-left: 12%;
@@ -31,6 +31,17 @@
     background-color: white;
 }
 
+/*-------------------- Cartel en carrito ---------------------*/
+.cartel{
+    width: 100%;
+    padding-top: 0.5%;
+    padding-bottom: 0.5%;
+    text-align: center;
+    background-color: white;
+    font-size: 20px;
+} 
+
+
 /*--------------------- Tabla carrito ------------------------*/
 #cate-table{
  background-color: rgba(182,120,255);
@@ -40,12 +51,15 @@
     background-color: white;
 }
 
+
 .eliminar{
     background: none; 
     border: none; 
     cursor: pointer; 
-    padding: 5px; 
+    
+    padding-left: 35px;
     transition: transform 0.2s ease-in-out; 
+    
 }
 
 .eliminar img{
@@ -59,16 +73,39 @@
     transform: scale(1.2); 
 }
 
-#prod-col{
+
+.th-img{
+    padding-left: 2%;
+}
+
+.prod-col{
     padding-left: 5%;
 }
 
+.precio{
+    text-align: center;
+}
 
 
 .contador{
     width: 50px;
+    height: 25px;
+    text-align: center;
     margin-left: 25%;
 }
+
+
+.contador input{
+    padding: 1%;
+   
+}
+
+.total{
+    width: 120px;
+    text-align: center;
+}
+
+
 
 /*---------------------- CSS del form --------------------------*/
 h3{

@@ -29,5 +29,18 @@ class Articulo extends CI_Model {
    }
     
 
+   function agregarArticulo($id,$nombre, $descripcion,$categoria, $precio, $stock, $destacado){
+    $data = [
+        'id' => $id,
+        'nombre' => $nombre,
+        'descripcion' => $descripcion,
+        'categoria' => $categoria,
+        'precio' => $precio,
+        'stock' => $stock,
+        'destacado' => $destacado ? 1 : 0 // Guardarlo como 1 o 0 en la BD
+    ];
+
+    $this->db->insert('productos', $data);
+}
 
 }

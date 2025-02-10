@@ -7,7 +7,6 @@
   .body-carga{
     width: 100%;
     height: auto;
- 
     padding-bottom: 50px;
   } 
   
@@ -55,44 +54,49 @@
   .carga {
     width: 100%;
     height: auto;
-    position: relative;
-    background-size: cover;
-    background-position: center;
     margin-bottom: 3%;
   }
   
+  .seccion-carga{
+    width: 90%;
+    height: 520px;
+    display: flex;
+    background-color: whitesmoke;
+    justify-content: center;
+    justify-self: center;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+  }
+
+
+
   #formArticulos{
-    width: 30%;
-    height: 75%;
-    position: absolute;
-    background-color:  rgb(255, 255, 255, 0.7);
-    border-radius: 30px;
-    padding-right: 5%;
-    padding-left: 5%;
-    top: 50%;
-    left: 30%;
-    transform: translate(-50%, -50%);
-    padding-top: 2%;
+    width: 55%;
+    padding-left: 8%;
   } 
   
+  .img-carga{
+    width: 45%;
+   
+  }
+
+  .img-carga img{
+    background-size: cover;
+  }
   
   
   #formArticulosC{
   width: 27%;
   height: 58%;
-  position: absolute;
   background-color: rgb(255, 255, 255, 0.7);
   border-radius: 30px;
   padding-right: 5%;
   padding-left: 5%;
-  top: 50%;
-  left: 30%;
-  transform: translate(-50%, -50%);
   padding-top: 2%;
   } 
   
   .foto img{
-  width: 100%;
+    width: 100%;
   }
   
   
@@ -117,45 +121,24 @@
   }
   
   .titulo {
-    width: 50%;
-    height: 15%;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    padding-right: 5%;
-    padding-left: 5%;
-      top: 100%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      border-top-left-radius: 10px;
-      border-top-right-radius: 10px;
-      background-color: rgb(241, 241, 43);
-      margin-bottom: 5%;
-      color: red;
+    width: 100%;
+    text-align: center;
   }
   
   #carga-lista{
     width: 100%;
     height: 8%;
-    font-family:  'Calistoga', serif;
     font-size: 35px;
     margin-bottom: 8%;
   }
   
   #mostrar-lista{
-    font-family:  'Calistoga', serif;
     font-size: 45px;
     margin-top: 6%;
     padding-bottom: 3%;
   }
   
-  .cuadro-der{
-    width: 50%;
-    height: auto;
-    padding-top: 10% ;
-    padding-left: 2%;
-    font-family: questrial;
-  }
+ 
   
   .form button {
     border: 0;
@@ -220,3 +203,22 @@
     border: 3px solid rgb(182,120,255);
     cursor: pointer;
   } 
+
+
+  /*--------------------------- Modificar Articulo ---------------------------*/
+.cuadros-mod{
+  width: 80%;
+  display: flex;
+  padding: 5%;
+}
+
+.cuadro-izq{
+  width: 40%;
+  background-color: rgb(182,120,255);
+  padding: 5%;
+}
+
+.cuadro-der{
+  width: 50%;
+  background-color: whitesmoke;
+}

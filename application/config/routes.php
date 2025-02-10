@@ -58,5 +58,9 @@ $route['enviarForm'] = 'AbmCarrito/enviarForm';
 $route['contacto'] = 'Welcome/contacto';
 $route['nuestrosProductos/(:any)'] = 'AbmArticulos/mostrarCategoria/$1';
 
+$route['inicioAdmin']='inicioAdmin/index';
+$route['cargarArticulos']='AbmArticulos/pestañaArticulos';
+
+
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

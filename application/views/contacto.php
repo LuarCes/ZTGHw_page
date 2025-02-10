@@ -42,17 +42,21 @@
 
         <div class="tarj-asesores">
             <div class="asesor" id="vale">
+                <a href="">
                 <img class="img-cont" src="<?= base_url('assets/images/supportG.png') ?>" width="25%">
                 <p>¡Hola! Soy <b>Valentina</b>, tu asesora en ZTG Hardware. Puedes encontrarme en los horarios de 
                     atención para ayudarte a encontrar los productos de tecnología que necesites! 
                 </p>
                 <p>Has click en mi tarjetita para contactarme 👋</p>
+                </a>
             </div>
             <div class="asesor" id="sebas">
+                <a href="">
                 <img class="img-cont" src="<?= base_url('assets/images/supportB.png') ?>" width="25%">
                 <p>¡Hola! Soy <b>Sebastián</b>, tu asesor en ZTG Hardware. Si necesitas asesoramiento sobre hardware o 
                     periféricos, no dudes en contactarme dentro del horario de atención!</p>
                 <p>Has click en mi tarjetita para contactarme 👋</p>
+                </a>
             </div>
         </div>
 

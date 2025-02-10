@@ -68,6 +68,7 @@
                         <div class="card-body">
                             <h4 class="card-title"> <?=  $producto->nombre  ?> </h4>
                             <p class="card-text">Precio : $ <?=  $producto->precio  ?></p> 
+                            <p>Stock: <?=  $producto->stock  ?> </p>
                         </div>
                         <div class="div-btn">
                             <button type="button" class="btn-agregar" id="boton" onclick='agregarAlCarrito(<?= json_encode($producto) ?>)'>Agregar</button>

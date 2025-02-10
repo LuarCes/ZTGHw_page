@@ -35,6 +35,6 @@
             </ul> 
         </div>
         <div class="mapouter"><div class="gmap_canvas"><iframe class="gmap_iframe" width="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=50&amp;height=150&amp;hl=en&amp;q=Rivadavia 3188 oficina entrepiso, mar del plata&amp;t=&amp;z=13&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe></div><style>.mapouter{position:relative;text-align:right;width:100%;height:305px;}.gmap_canvas {overflow:hidden;background:none!important;width:100%;height:305px;}.gmap_iframe {height:305px!important;}</style></div>
-        
+        <div class="admin-icon"><a href="<?= base_url(); ?>index.php/inicioAdmin"><img src="<?=base_url('assets/images/admin1.png') ?>"></a></div>
 
 </footer>

@@ -45,5 +45,14 @@ footer{
 
 .mapouter{
     width: 25%;
-    padding-right: 5%;
+
+}
+
+.admin-icon{
+    width: 100px;
+}
+
+.admin-icon img{
+    width: 100%;
+    margin-top:250px;
 }

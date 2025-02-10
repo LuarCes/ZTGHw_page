@@ -1,7 +1,5 @@
 <?php
-/*esta vista va a recibir $data['articulos']
-por parametros, y se llega a travez del boton de la cabecera
-esto deberia mostrarse en algo mas parecido a una tabla*/
+
 ?>
 
 <!DOCTYPE html>
@@ -19,6 +17,11 @@ esto deberia mostrarse en algo mas parecido a una tabla*/
 </head>
   
 <body>
+
+    <div class="cartel">
+        <p>🎮 La compra mínima por la web debe ser de $100.000 🎮<br>o 12 unidades por artículo</p>
+    </div>
+
 
    <div class="tabla_carrito">
         <table class="cates">
@@ -47,7 +50,7 @@ esto deberia mostrarse en algo mas parecido a una tabla*/
    </div>
 
     <div class="total-pagar">
-        <p> Total a pagar : $<span id="total-pagar">0.00</span> </p>
+        <p> Total a pagar : <span id="total-pagar">0.00</span> </p>
         <button><a href="<?= base_url(); ?>index.php/verForm">Finalizar compra</a></button>
     </div>
 

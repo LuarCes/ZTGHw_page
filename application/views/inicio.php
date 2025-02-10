@@ -1,7 +1,5 @@
 <?php
-/*esta vista va a recibir $data['articulos']
-por parametros, y se llega a travez del boton de la cabecera
-esto deberia mostrarse en algo mas parecido a una tabla*/
+
 ?>
 
 <!DOCTYPE html>
@@ -36,19 +34,19 @@ esto deberia mostrarse en algo mas parecido a una tabla*/
 
        <div class="small-banner">
             <div class="cuadrado" id="cuotas">
-                <img src="assets/images/pagos.png" width="20%">
+                <img src="<?= base_url('assets/images/pagos.png') ?>" width="20%">
                 <p>Podés elegir entre múltiples medios de pago</p>
             </div>
             <div class="cuadrado" id="descuento">
-                <img src="assets/images/promocion.png" width="20%">
+                <img src="<?= base_url('assets/images/promocion.png') ?>" width="20%">
                 <p>¡Consulta por precios mayoristas!</p>
             </div>
             <div class="cuadrado" id="envios">
-                <img src="assets/images/shipped_411763.png" width="20%">
+                <img src="<?= base_url('assets/images/shipped_411763.png') ?>" width="20%">
                 <p>Envíos a todo el país</p>
             </div>
             <div class="cuadrado" id="atencion">
-                <img src="assets/images/atencion.png" width="20%">
+                <img src="<?= base_url('assets/images/atencion.png') ?>" width="20%">
                 <p>Contactanos Lun-Vier de 14:30 a 19:00hs y Sáb de 13 a 17hs</p>
             </div>
        </div>
@@ -59,45 +57,45 @@ esto deberia mostrarse en algo mas parecido a una tabla*/
                 <table >
                     <tr class="fila" >
                         <th>                       
-                            <img src="assets/images/auriculares.png" width="20%">
+                            <img src="<?= base_url('assets/images/auriculares.png') ?>" width="20%">
                             <p><a href="<?= base_url(); ?>index.php/nuestrosProductos/Auriculares" id="auri" class="categorizar">Auriculares</a></p>
                         </th>
                         <th>
-                            <img src="assets/images/raton.png" width="20%">
+                            <img src="<?= base_url('assets/images/raton.png') ?>" width="20%">
                             <p><a href="<?= base_url(); ?>index.php/nuestrosProductos/Mouse" id="mouse" class="categorizar">Mouse</a></p>
                         </th>
                         <th>
-                            <img src="assets/images/teclado.png" width="20%">
+                            <img src="<?= base_url('assets/images/teclado.png') ?>" width="20%">
                             <p><a href="<?= base_url(); ?>index.php/nuestrosProductos/Teclado" id="teclado" class="categorizar">Teclado</a></p>
                         </th>
                         <th>
-                            <img src="assets/images/camara-web.png" width="20%">
+                            <img src="<?= base_url('assets/images/camara-web.png') ?>" width="20%">
                             <p><a href="<?= base_url(); ?>index.php/nuestrosProductos/Camara" id="Camara" class="categorizar">Cámara</a></p>
                         </th>
                         <th>
-                            <img src="assets/images/parlante.png" width="20%">
+                            <img src="<?= base_url('assets/images/parlante.png') ?>" width="20%">
                             <p><a href="<?= base_url(); ?>index.php/nuestrosProductos/Parlante" id="parlantes" class="categorizar">Parlantes</a></p>
                         </th>
                     </tr>
                     <tr class="fila">
                         <th>
-                            <img src="assets/images/consola-de-juego.png" width="20%">
+                            <img src="<?= base_url('assets/images/consola-de-juego.png')?>" width="20%">
                             <p><a href="<?= base_url(); ?>index.php/nuestrosProductos/Consola" id="consola" class="categorizar">Consola</a></p>
                         </th>
                         <th>
-                            <img src="assets/images/estacion-de-juegos.png" width="20%">
+                            <img src="<?= base_url('assets/images/estacion-de-juegos.png') ?>" width="20%">
                             <p><a href="<?= base_url(); ?>index.php/nuestrosProductos/Juego" id="Juego" class="categorizar">Videojuegos</a></p>
                         </th>
                         <th>
-                            <img src="assets/images/control.png" width="20%">
+                            <img src="<?= base_url('assets/images/control.png') ?>" width="20%">
                             <p><a href="<?= base_url(); ?>index.php/nuestrosProductos/Joystick" id="Joystick" class="categorizar">Joystick</a></p>
                         </th>
                         <th>
-                            <img src="assets/images/avatar.png" width="20%">
+                            <img src="<?= base_url('assets/images/avatar.png') ?>" width="20%">
                             <p><a href="<?= base_url(); ?>index.php/nuestrosProductos/Fundas" id="mouse" class="categorizar">Fundas</a></p>
                         </th>
                         <th>
-                            <img src="assets/images/mas.png" width="20%">
+                            <img src="<?= base_url('assets/images/mas.png') ?>" width="20%">
                             <p><a href="<?= base_url(); ?>index.php/nuestrosProductos/Otros" id="otros" class="categorizar">Otros</a></p>
                         </th>
                     </tr>
