@@ -43,4 +43,25 @@ class Articulo extends CI_Model {
     $this->db->insert('productos', $data);
 }
 
+
+function modificarArticulo($idOriginal,$idArt, $nombreArt, $descripcion, $precio, $stock, $categoria){
+    $data = [];
+
+    if (!empty($idArt)) $data['id'] = $idArt;
+    if (!empty($nombreArt)) $data['nombre'] = $nombreArt;
+    if (!empty($descripcion)) $data['descripcion'] = $descripcion;
+    if (!empty($precio)) $data['precio'] = $precio;
+    if (!empty($stock)) $data['stock'] = $stock;
+    if (!empty($categoria)) $data['categoria'] = $categoria;
+
+    if (!empty($data)) { // Solo actualiza si hay cambios
+        $this->db->where('id', $idOriginal);
+        $this->db->update('productos', $data);
+    }
+}
+
+function eliminarArticulo($idArt){
+    $consulta = $this->db->query("DELETE FROM productos WHERE productos.id = '$idArt'");
+}
+
 }

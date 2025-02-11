@@ -17,6 +17,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100;1,100&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Calistoga&display=swap" rel="stylesheet">
@@ -40,6 +41,8 @@
             <div class="seccion-carga">
                 <form class="form" action="<?= base_url(); ?>AbmArticulos/crearArticulo" method="POST" id="formArticulos" enctype="multipart/form-data">
                     <h3 id="carga-lista" align="center">Carga de Artículos</h3>
+
+                    
                     <p>Codigo&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: &nbsp;
                         <input type="text" name="id" placeholder="Cod del producto" required maxlength="40"
                             align="center">
@@ -67,7 +70,7 @@
                             <option>Teclado</option>
                             <option>Camara</option>
                             <option>Parlantes</option>
-                            <option>Consola</option>
+                            <option>Cables</option>
                             <option>Videojuegos</option>
                             <option>Joystick</option>
                             <option>Fundas</option>
@@ -100,6 +103,7 @@
 
         <table id="deProductos" width="90%" align="center">
             <tr class="titulos" align="center">
+                <th id="id">Código</th>
                 <th id="articulos">Artículo</th>
                 <th id="descripcion">Descripción</th>
                 <th>Precio</th>
@@ -112,6 +116,9 @@
             foreach ($articulos->result() as $articulo){
                 $url_img = "assets/images/articulos/" . $articulo->id . ".png"; ?>
             <tr align="center">
+                <td>
+                    <?= $articulo->id; ?>
+                </td>
                 <td>
                     <?= $articulo->nombre; ?>
                 </td>
@@ -142,45 +149,46 @@
         </table>
 
     
- 
-    <!-- Modal -->
-<div class="modal fade" id="eliminarModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Eliminar Articulo</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <p>¿Seguro desea eliminar el artículo "<span id="nombreArticulo"></span>" ?</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
-                <a href="<?=base_url();?>AbmArticulos/eliminarArticulo/" id="eliminarEnlace">
-                    <button type="button" class="btn btn-primary">Eliminar</button>
-                </a>
-            </div>
-        </div>
-    </div>
-</div>
 
-    <script src="<?= base_url()?>assets/js/jquery-3.6.0.min.js"></script>
-    <script src="<?= base_url()?>assets/js/bootstrap.bundle.min.js"></script>
-    <script>
-    $('#eliminarModal').on('show.bs.modal', function (event) {
-        var button = $(event.relatedTarget); // El botón que disparó el modal
-        var articuloId = button.data('articulo-id'); // Obtén el ID del artículo del botón
-        var articuloNombre = button.data('articulo-nombre'); // Obtén el nombre del artículo del botón
 
-        // Actualiza el contenido del modal con el nombre y el ID del artículo
-        $('#nombreArticulo').text(articuloNombre);
-        $('#idArticulo').text(articuloId);
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-        // Actualiza el enlace del botón "Eliminar" en el modal
-        var eliminarEnlace = $('#eliminarEnlace');
-        eliminarEnlace.attr('href', '<?= base_url(); ?>AbmArticulos/eliminarArticulo/' + articuloId);
+<script>
+    $(document).ready(function () {
+        $(document).on('click', '.btn-primary[data-bs-toggle="modal"]', function (event) {
+            event.preventDefault(); // Evita que el modal Bootstrap se abra
+
+            console.log("Se hizo clic en el botón eliminar"); // <-- Verificar en la consola del navegador
+
+            var articuloId = $(this).data('articulo-id'); // Obtiene el ID del artículo
+            var articuloNombre = $(this).data('articulo-nombre'); // Obtiene el nombre del artículo
+
+            console.log("ID del artículo:", articuloId); // <-- Verificar si el ID es correcto
+            console.log("Nombre del artículo:", articuloNombre);
+
+            // Mostrar alerta de confirmación con SweetAlert2
+            Swal.fire({
+                title: '¿Estás seguro?',
+                text: 'Vas a eliminar el artículo "' + articuloNombre + '". Esta acción no se puede deshacer.',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#3085d6',
+                confirmButtonText: 'Sí, eliminar',
+                cancelButtonText: 'Cancelar'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Si el usuario confirma, redirigir a la URL de eliminación
+                    console.log("Redirigiendo a:", '<?= base_url(); ?>AbmArticulos/eliminarArticulo/' + articuloId);
+                    window.location.href = '<?= base_url(); ?>AbmArticulos/eliminarArticulo/' + articuloId;
+                }
+            });
+        });
     });
 </script>
+
+
+
 
 </body>
 

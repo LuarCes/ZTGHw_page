@@ -13,6 +13,7 @@
     <script src="<?= base_url(); ?>assets/js/script.js" defer></script>
     <script src="<?= base_url(); ?>assets/js/categorizar.js" defer></script>
     <script src="<?= base_url(); ?>assets/js/cartService.js" defer></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <title>ZTG Hardware - Inicio</title>
     
@@ -79,8 +80,8 @@
                     </tr>
                     <tr class="fila">
                         <th>
-                            <img src="<?= base_url('assets/images/consola-de-juego.png')?>" width="20%">
-                            <p><a href="<?= base_url(); ?>index.php/nuestrosProductos/Consola" id="consola" class="categorizar">Consola</a></p>
+                            <img src="<?= base_url('assets/images/cable.png')?>" width="20%">
+                            <p><a href="<?= base_url(); ?>index.php/nuestrosProductos/Cables" id="cables" class="categorizar">Cables</a></p>
                         </th>
                         <th>
                             <img src="<?= base_url('assets/images/estacion-de-juegos.png') ?>" width="20%">

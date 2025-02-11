@@ -86,28 +86,28 @@ class AbmArticulos extends CI_Controller {
     }
 
     public function modificarArticulo($id){
-        $nombre = $_POST['nombre'];
-        $descripcion = $_POST['descripcion'];
-        $precio = $_POST['precio'];
-        $stock = $_POST['stock'];
-        
+        $idNuevo = $this->input->post('idNuevo');
+        $nombre = $this->input->post('nombre');
+        $descripcion = $this->input->post('descripcion');
+        $precio = $this->input->post('precio');
+        $stock = $this->input->post('stock');
+        $categoria = $this->input->post('categoria');
+    
         $this->load->model('Articulo');
-        $this->Articulo->modificarArticulo($id, $nombre, $descripcion, $precio, $stock);
-
-        // Borramos el archivo de nuestros assets
-        unlink('./assets/imagenes/articulos/'.$id.'.jpg');
-        // Obtiene la información del archivo subido
-        $nombreArchivo = $_FILES['imagen']['name'];
-        $infoArchivo = pathinfo($nombreArchivo);
-        $extension = $infoArchivo['extension'];
-        $rutaTemporalImagen = $_FILES['imagen']['tmp_name'];
-        $tipoImagen = $_FILES['imagen']['type'];
-        // Mueve la imagen a la carpeta de destino
-        $rutaImagenDestino = './assets/imagenes/articulos/'.$id.'.'.$extension;
-        move_uploaded_file($rutaTemporalImagen, $rutaImagenDestino);
-
-
-        $this->pestañaArticulos();
+        $this->Articulo->modificarArticulo($id, $idNuevo, $nombre, $descripcion, $precio, $stock, $categoria);
+    
+         // Obtiene la información del archivo subido
+         $nombreArchivo = $_FILES['imagen']['name'];
+         $infoArchivo = pathinfo($nombreArchivo);
+         $extension = 'png';
+         $rutaTemporalImagen = $_FILES['imagen']['tmp_name'];
+         $tipoImagen = $_FILES['imagen']['type'];
+         // Mueve la imagen a la carpeta de destino
+         $rutaImagenDestino = './assets/images/articulos/'.$id.'.'.$extension;
+         move_uploaded_file($rutaTemporalImagen, $rutaImagenDestino);
+ 
+    
+         $this->pestañaArticulos();
     }
 
 

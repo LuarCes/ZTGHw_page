@@ -48,7 +48,7 @@
                     <li><button id="teclado" class="categorizar">Teclado</button></li>
                     <li><button id="camara" class="categorizar">Camara</button></li>
                     <li><button id="parlantes" class="categorizar">Parlantes</button></li>
-                    <li><button id="consola" class="categorizar">Consola</button></li>
+                    <li><button id="cables" class="categorizar">Cables</button></li>
                     <li><button id="vj" class="categorizar">Videojuegos</button></li>
                     <li><button id="joystick" class="categorizar">Joystick</button></li>
                     <li><button id="fundas" class="categorizar">Fundas</button></li>
