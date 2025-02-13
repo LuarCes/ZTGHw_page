@@ -15,6 +15,7 @@ class Welcome extends CI_Controller {
 		$this->load->model('Articulo');
 		$data['productos'] = $this->Articulo->traerArticulos();
 
+		session_unset();
 
 		$msj['msj'] = '';
 		$this->load->view('header', $msj);

@@ -1,26 +1,28 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const categoryFilters = document.querySelectorAll('.categorizar'); // Botones de categoría
-    const productsContainer = document.getElementById('products-container'); // Contenedor de productos
-  
-    // Almacena todos los productos originales
-    const allProducts = Array.from(productsContainer.children);
-  
-    categoryFilters.forEach(filter => {
-      filter.addEventListener('click', (event) => {
-        event.preventDefault();
-  
-        const selectedCategory = event.target.textContent.trim();
-  
-        // Filtra a partir de la lista de productos originales
-        const filteredProducts = allProducts.filter(product => {
-          return product.dataset.category === selectedCategory;
-        });
-  
-        // Actualiza el contenedor con los productos filtrados
-        productsContainer.innerHTML = '';
-        filteredProducts.forEach(product => {
-          productsContainer.appendChild(product);
-        });
+  const productsContainer = document.getElementById('products-container');
+
+  if (!productsContainer) {
+      console.error("El contenedor de productos no se encontró.");
+      return;
+  }
+
+  const allProducts = Array.from(productsContainer.children);
+
+  document.querySelectorAll('.fila th').forEach(th => {
+      th.addEventListener('click', (event) => {
+          event.preventDefault();
+
+          // Buscar el enlace dentro del <th>
+          const link = th.querySelector('.categorizar');
+          if (!link) return; 
+
+          const selectedCategory = link.textContent.trim();
+          const filteredProducts = allProducts.filter(product => 
+              product.dataset.category === selectedCategory
+          );
+
+          productsContainer.innerHTML = '';
+          filteredProducts.forEach(product => productsContainer.appendChild(product));
       });
-    });
   });
+});

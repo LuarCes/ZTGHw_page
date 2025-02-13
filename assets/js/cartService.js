@@ -9,32 +9,38 @@ function actualizarContadorCarrito() {
 }
 
 
-function agregarAlCarrito(producto) {
+function agregarAlCarrito(producto, cantidadIngresada = 1) {
     try {
-        const productosEnCarrito = JSON.parse(localStorage.getItem('productos')) || [];
-        const productoExistente = productosEnCarrito.find(p => p.id === producto.id);
+        let productosEnCarrito = JSON.parse(localStorage.getItem('productos')) || [];
+        let cantidades = JSON.parse(localStorage.getItem('cantidades')) || {};
+        let productoExistente = productosEnCarrito.find(p => p.id === producto.id);
+        let indice = 0; // Inicializamos el índice
 
-        if (productoExistente) {
-            console.log('El producto ya está en el carrito');
+        if (!productoExistente) {
+            productosEnCarrito.push(producto);
         } else {
-            productosEnCarrito.push({
-                id: producto.id,
-                nombre: producto.nombre,
-                precio: producto.precio,
-                stock: producto.stock, 
-                eliminado: false
-            });
-
-
-            localStorage.setItem('productos', JSON.stringify(productosEnCarrito));
-            actualizarContadorCarrito();
+            // Si el producto ya existe, buscamos el último índice utilizado y lo incrementamos
+            let productosRepetidos = productosEnCarrito.filter(p => p.id === producto.id);
+            if (productosRepetidos.length > 0) {
+                let indicesUsados = productosRepetidos.map(p => p => p.indice || 0); // Manejar undefined
+                indice = Math.max(...indicesUsados) + 1;
+            }
         }
+
+        producto.indice = indice; // Asignamos el índice al producto
+        localStorage.setItem('productos', JSON.stringify(productosEnCarrito));
+
+        // Creamos el identificador único
+        const idUnico = `${producto.id}-${indice}`;
+        cantidades[idUnico] = (cantidades[idUnico] || 0) + cantidadIngresada;
+        localStorage.setItem('cantidades', JSON.stringify(cantidades));
+
+        actualizarContadorCarrito();
     } catch (error) {
         console.error('Error al agregar al carrito:', error);
     }
-
-    producto.eliminado = false;
 }
+
 
 function mostrarCarrito() {
     try {
@@ -57,7 +63,9 @@ function mostrarCarrito() {
                     <td class="precio">$${producto.precio}</td> 
                     <td><input class="contador" type="number" value="1" min="1" max="${producto.stock}" onchange="actualizarTotal(this, ${producto.precio},${producto.stock})">
                     <span>(Stock: ${producto.stock})</span></td> 
+                    
                     <td class="total">$${producto.precio}</td> `;
+                   
                 carritoProductos.appendChild(nuevaFila);
             }
         });
@@ -70,19 +78,25 @@ function mostrarCarrito() {
 
 function actualizarTotal(input, precio, stock) {
     let cantidad = parseInt(input.value);
-
-    if (isNaN(cantidad) || cantidad < 1) {
-        cantidad = 1; // Si el valor es inválido o menor que 1, lo ajustamos a 1
-    } else if (cantidad > stock) {
-        cantidad = stock; // Si el usuario intenta comprar más que el stock, lo ajustamos
-    }
+    if (isNaN(cantidad) || cantidad < 1) cantidad = 1;
+    if (cantidad > stock) cantidad = stock;
 
     input.value = cantidad;
 
-    // Actualizar el total en la fila correspondiente
-    const fila = input.closest('tr');
-    const celdaTotal = fila.querySelector('.total');
-    const nuevoTotal = precio * cantidad;
+    let cantidades = JSON.parse(localStorage.getItem('cantidades')) || {};
+    let idProducto = input.dataset.id;
+    let indice = input.dataset.indice;
+
+    indice = indice === undefined ? 0 : indice;
+    
+    const idUnico = `${idProducto}-${indice}`;
+    cantidades[idUnico] = cantidad;
+
+    localStorage.setItem('cantidades', JSON.stringify(cantidades));
+
+    let fila = input.closest('tr');
+    let celdaTotal = fila.querySelector('.total');
+    let nuevoTotal = precio * cantidad;
     celdaTotal.textContent = `$${nuevoTotal.toFixed(2)}`;
 
     actualizarTotalPagar();

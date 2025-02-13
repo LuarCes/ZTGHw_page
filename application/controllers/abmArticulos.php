@@ -118,4 +118,18 @@ class AbmArticulos extends CI_Controller {
     }
 
 
+    public function buscarProducto($nombre) {
+        $this->load->model('Articulo');
+    
+        // Buscar productos que contengan la palabra clave en el nombre o marca
+        $data['productos'] = $this->Articulo->traerPorNombre($nombre);
+
+        $msj['msj'] = '';
+        $this->load->view('header', $msj);
+        $this->load->view('articulos', $data);
+        $this->load->view('footer');
+    }
+    
+
+
 }

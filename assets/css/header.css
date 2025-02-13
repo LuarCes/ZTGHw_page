@@ -16,8 +16,9 @@ header a{
 .buscador{
     width: 50%;
     align-items: center;
-    
 }
+
+
 
 .form-control{
     width: 50%;
@@ -59,4 +60,9 @@ header a{
 	
 a{
     text-decoration: none;  
+}
+
+
+.btn-salir img{
+    filter: invert(1);
 }

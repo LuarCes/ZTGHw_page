@@ -10,7 +10,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="<?= base_url(); ?>assets/css/carrito.css">
     <link rel="stylesheet" href="<?= base_url(); ?>assets/css/inicio.css">
-    <script src="<?= base_url(); ?>assets/js/filtro.js" defer></script>
     <script src="<?= base_url(); ?>assets/js/cartService.js" defer></script>
 
     <title>ZTGHardware - Carrito</title>

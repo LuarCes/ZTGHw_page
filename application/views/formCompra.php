@@ -11,8 +11,8 @@
     <link rel="stylesheet" href="<?= base_url(); ?>assets/css/carrito.css">
     <link rel="stylesheet" href="<?= base_url(); ?>assets/css/inicio.css">
     <link rel="stylesheet" href="<?= base_url(); ?>assets/css/formCompra.css">
-    <script src="<?= base_url(); ?>assets/js/filtro.js" defer></script>
-    <script src="<?= base_url(); ?>assets/js/carrito.js" defer></script>
+    <script src="<?= base_url(); ?>assets/js/carrito.js?v=<?= time(); ?>" defer></script>
+
 
     <title>ZTGHardware - Carrito</title>
 </head>

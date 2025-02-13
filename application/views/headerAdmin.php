@@ -8,6 +8,49 @@
     
     <link rel="stylesheet" href="<?= base_url(); ?>assets/css/header.css">
     
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+            <script>
+                $(document).ready(function () {
+                 $(document).on('click', '.btn-salir[data-bs-toggle="modal"]', function (event) {
+                 event.preventDefault(); 
+
+                    Swal.fire({
+                        title: '¿Quieres cerrar sesión?',
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#d33',
+                        cancelButtonColor: '#3085d6',
+                        confirmButtonText: 'Sí, salir',
+                        cancelButtonText: 'Cancelar'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            console.log("Redirigiendo a:", '<?= base_url(); ?>');
+                            window.location.href = '<?= base_url(); ?>';
+                        }
+                    });
+                });
+            });
+            </script>
+
+<script>
+        $(document).ready(function () {
+                $(".buscador input").on("keypress", function (e) {
+                    if (e.which === 13) { // Código 13 = tecla Enter
+                        var busqueda = $(this).val().trim(); // Obtiene el texto ingresado
+
+                        if (busqueda !== "") {
+                            window.location.href = "<?= base_url(); ?>index.php/buscarProducto/" + encodeURIComponent(busqueda);
+                        }
+                    }
+                });
+        });
+    </script>
+
+
 </head>
 
      <header>
@@ -20,8 +63,13 @@
                 <ul class="header-list">
                     <li><a href="<?= base_url(); ?>index.php/bienvenida">Inicio</a></li>
                     <li><a href="<?= base_url(); ?>index.php/nuestrosProductos" >Productos</a></li>
-                    <li><a href="<?= base_url(); ?>index.php/cargarArticulos" >Carga Prod</a></li>
+                    <li><a href="<?= base_url(); ?>index.php/cargarArticulos" >Administración</a></li>
+                    <li class="btn-salir" id="boton" data-bs-toggle="modal"><img src="<?= base_url('assets/images/apagar.png') ?>" width="30%"></li>
                 </ul>
             </div> 
+
+
+            
+
     </header>
 </html>

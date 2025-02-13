@@ -49,7 +49,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller'] = 'welcome';
+$route['default_controller'] = 'welcome/index';
 $route['bienvenida'] = 'Welcome/bienvenida';
 $route['nuestrosProductos'] = 'AbmArticulos/mostrarArticulos';
 $route['verCarrito'] = 'AbmCarrito/vistaCarrito';
@@ -57,6 +57,8 @@ $route['verForm'] = 'AbmCarrito/vistaForm';
 $route['enviarForm'] = 'AbmCarrito/enviarForm';
 $route['contacto'] = 'Welcome/contacto';
 $route['nuestrosProductos/(:any)'] = 'AbmArticulos/mostrarCategoria/$1';
+$route['buscarProducto/(:any)'] = 'AbmArticulos/buscarProducto/$1';
+
 
 $route['inicioAdmin']='inicioAdmin/index';
 $route['cargarArticulos']='AbmArticulos/pestañaArticulos';

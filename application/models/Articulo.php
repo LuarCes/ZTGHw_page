@@ -12,7 +12,7 @@ class Articulo extends CI_Model {
    function traerArticulos(){
         $query=$this->db->get('productos');
         if($query->num_rows()>0){
-            return $query;
+            return $query->result();
         }else{
             return null;
         }
@@ -25,9 +25,23 @@ class Articulo extends CI_Model {
     
     function traerCategoria($categoria){
         $consulta = $this->db->query("SELECT * FROM productos WHERE categoria = '$categoria'");
-        return $consulta;
+        return $consulta->result();
    }
     
+
+    function traerPorNombre($nombre) {
+        
+        $this->db->like('nombre', $nombre);
+        $consulta = $this->db->get('productos');
+
+        if ($consulta->num_rows() > 0) {
+            return $consulta->result(); // Devuelve los resultados
+        } else {
+            return []; // Devuelve un array vacío en lugar de NULL
+        }
+    }
+
+
 
    function agregarArticulo($id,$nombre, $descripcion,$categoria, $precio, $stock, $destacado){
     $data = [

@@ -1,6 +1,9 @@
 <?php
     $categoriaSeleccionada = isset($_GET['categoria']) ? $_GET['categoria'] : null;
+
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -60,7 +63,7 @@
 
             <div class="donde-prod" id="products-container">
                 <?php
-                    foreach($productos->result() as $producto){
+                    foreach($productos as $producto){
                         $url_img = "assets/images/articulos/".$producto->id.".png"; ?>
 
                     <div class="card" data-price="<?= $producto->precio ?>" data-category="<?= $producto->categoria ?>">

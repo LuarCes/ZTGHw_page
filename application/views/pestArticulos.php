@@ -113,10 +113,10 @@
                 <th></th>
             </tr>
             <?php 
-            foreach ($articulos->result() as $articulo){
+            foreach ($articulos as $articulo){
                 $url_img = "assets/images/articulos/" . $articulo->id . ".png"; ?>
             <tr align="center">
-                <td>
+                <td width=100px>
                     <?= $articulo->id; ?>
                 </td>
                 <td>
@@ -130,6 +130,9 @@
                 </td>
                 <td width=100px>
                     <?= $articulo->stock; ?>
+                </td>
+                <td width=100px>
+                    <?= $articulo->categoria; ?>
                 </td>
                 <td width=200px><img src='<?= base_url() . $url_img ?>' alt='articulo.png' width=150px height=150px>
                 </td>
@@ -158,13 +161,12 @@
         $(document).on('click', '.btn-primary[data-bs-toggle="modal"]', function (event) {
             event.preventDefault(); // Evita que el modal Bootstrap se abra
 
-            console.log("Se hizo clic en el botón eliminar"); // <-- Verificar en la consola del navegador
+            
 
             var articuloId = $(this).data('articulo-id'); // Obtiene el ID del artículo
             var articuloNombre = $(this).data('articulo-nombre'); // Obtiene el nombre del artículo
 
-            console.log("ID del artículo:", articuloId); // <-- Verificar si el ID es correcto
-            console.log("Nombre del artículo:", articuloNombre);
+        
 
             // Mostrar alerta de confirmación con SweetAlert2
             Swal.fire({

@@ -57,47 +57,47 @@
             <div class="tabla">
                 <table >
                     <tr class="fila" >
-                        <th>                       
+                        <th> <a href="<?= base_url(); ?>index.php/nuestrosProductos/Auriculares" id="auri" class="categorizar">                      
                             <img src="<?= base_url('assets/images/auriculares.png') ?>" width="20%">
-                            <p><a href="<?= base_url(); ?>index.php/nuestrosProductos/Auriculares" id="auri" class="categorizar">Auriculares</a></p>
+                            <p>Auriculares</p></a>
                         </th>
-                        <th>
+                        <th><a href="<?= base_url(); ?>index.php/nuestrosProductos/Mouse" id="mouse" class="categorizar">
                             <img src="<?= base_url('assets/images/raton.png') ?>" width="20%">
-                            <p><a href="<?= base_url(); ?>index.php/nuestrosProductos/Mouse" id="mouse" class="categorizar">Mouse</a></p>
+                            <p>Mouse</p></a>
                         </th>
-                        <th>
+                        <th><a href="<?= base_url(); ?>index.php/nuestrosProductos/Teclado" id="teclado" class="categorizar">
                             <img src="<?= base_url('assets/images/teclado.png') ?>" width="20%">
-                            <p><a href="<?= base_url(); ?>index.php/nuestrosProductos/Teclado" id="teclado" class="categorizar">Teclado</a></p>
+                            <p>Teclado</p></a>
                         </th>
-                        <th>
+                       <th> <a href="<?= base_url(); ?>index.php/nuestrosProductos/Camara" id="Camara" class="categorizar">
                             <img src="<?= base_url('assets/images/camara-web.png') ?>" width="20%">
-                            <p><a href="<?= base_url(); ?>index.php/nuestrosProductos/Camara" id="Camara" class="categorizar">Cámara</a></p>
+                            <p>Cámara</p></a>
                         </th>
-                        <th>
+                        <th><a href="<?= base_url(); ?>index.php/nuestrosProductos/Parlantes" id="parlantes" class="categorizar">
                             <img src="<?= base_url('assets/images/parlante.png') ?>" width="20%">
-                            <p><a href="<?= base_url(); ?>index.php/nuestrosProductos/Parlante" id="parlantes" class="categorizar">Parlantes</a></p>
+                            <p>Parlantes</p></a>
                         </th>
                     </tr>
                     <tr class="fila">
-                        <th>
+                        <th><a href="<?= base_url(); ?>index.php/nuestrosProductos/Cables" id="cables" class="categorizar">
                             <img src="<?= base_url('assets/images/cable.png')?>" width="20%">
-                            <p><a href="<?= base_url(); ?>index.php/nuestrosProductos/Cables" id="cables" class="categorizar">Cables</a></p>
+                            <p>Cables</p></a>
                         </th>
-                        <th>
+                        <th><a href="<?= base_url(); ?>index.php/nuestrosProductos/Juego" id="Juego" class="categorizar">
                             <img src="<?= base_url('assets/images/estacion-de-juegos.png') ?>" width="20%">
-                            <p><a href="<?= base_url(); ?>index.php/nuestrosProductos/Juego" id="Juego" class="categorizar">Videojuegos</a></p>
+                            <p>Videojuegos</p></a>
                         </th>
-                        <th>
+                        <th><a href="<?= base_url(); ?>index.php/nuestrosProductos/Joystick" id="Joystick" class="categorizar">
                             <img src="<?= base_url('assets/images/control.png') ?>" width="20%">
-                            <p><a href="<?= base_url(); ?>index.php/nuestrosProductos/Joystick" id="Joystick" class="categorizar">Joystick</a></p>
+                            <p>Joystick</p></a>
                         </th>
-                        <th>
+                        <th><a href="<?= base_url(); ?>index.php/nuestrosProductos/Fundas" id="mouse" class="categorizar">
                             <img src="<?= base_url('assets/images/avatar.png') ?>" width="20%">
-                            <p><a href="<?= base_url(); ?>index.php/nuestrosProductos/Fundas" id="mouse" class="categorizar">Fundas</a></p>
+                            <p>Fundas</p></a>
                         </th>
-                        <th>
+                        <th><a href="<?= base_url(); ?>index.php/nuestrosProductos/Otros" id="otros" class="categorizar">
                             <img src="<?= base_url('assets/images/mas.png') ?>" width="20%">
-                            <p><a href="<?= base_url(); ?>index.php/nuestrosProductos/Otros" id="otros" class="categorizar">Otros</a></p>
+                            <p>Otros</p></a>
                         </th>
                     </tr>
                   </table>
@@ -111,7 +111,7 @@
             <i id="left" class="fa-solid fa-angle-left"></i>
             <ul class="carousel">
                 <?php
-                foreach ($productos->result() as $producto) {
+                foreach ($productos as $producto) {
                     // Verificar si el producto es destacado
                     if ($producto->destacado) {
                         $url_img = "assets/images/articulos/" . $producto->id . ".png"; ?>
