@@ -78,4 +78,47 @@ function eliminarArticulo($idArt){
     $consulta = $this->db->query("DELETE FROM productos WHERE productos.id = '$idArt'");
 }
 
+
+function actualizarCanti ($id,$cantNueva){
+    $data = ["cantidad" => $cantNueva];
+
+        $this->db->where('id', $id);
+        return $this->db->update('productos', $data);
+
+}
+
+
+function actualizarCantPostCompra ($id, $cantidad){
+    $this->db->select('stock');
+    $this->db->where('id', $id);
+    $query = $this->db->get('productos');
+
+    if ($query->num_rows() > 0) {
+        $row = $query->row();
+        $stockActual = $row->stock;
+
+        // Calcular el nuevo stock (evitar que sea negativo)
+        $nuevoStock = max(0, $stockActual - $cantidad);  // Evita stock negativo
+
+        // Crear el array de datos a actualizar
+        $data = array(
+            'stock' => $nuevoStock
+        );
+
+        // Actualizar la base de datos
+        $this->db->where('id', $id);
+        $this->db->update('productos', $data);
+
+        return $this->db->affected_rows() > 0; // Retorna TRUE si se actualizó, FALSE si no
+    } else {
+        log_message('error', 'Producto no encontrado: ' . $id);
+        return FALSE;
+    }
+    }
+
+
+
+    
+
+
 }

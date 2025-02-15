@@ -33,8 +33,15 @@ class AbmCarrito extends CI_Controller {
 	}
 
 	public function enviarForm(){
-
 		
+	
+		// Confirmación de la compra
+		$msj['msj'] = 'Compra confirmada. Stock actualizado.';
+		$this->load->view('header', $msj);
+		$this->load->view('compraConfirm');
+		$this->load->view('footer');
     }
+    
+		
 
 }

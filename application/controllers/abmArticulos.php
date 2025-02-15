@@ -132,4 +132,30 @@ class AbmArticulos extends CI_Controller {
     
 
 
+
+    
+    public function actualizar_carrito(){
+        header('Content-Type: application/json');
+
+        $this->load->model('Articulo');
+
+        $id = $this->input->post('id');
+        $cant = $this->input->post('cantidad');
+
+        if (!isset($id, $cant) || !is_numeric($id) || !is_numeric($cant)) {
+            echo json_encode(["success" => false, "error" => "Datos inválidos"]);
+            return;
+        }
+
+        $resultado = $this->Articulo->actualizarCanti($id, $cant);
+
+        if ($resultado) {
+            echo json_encode(["success" => true]);
+        } else {
+            echo json_encode(["success" => false, "error" => "No se pudo actualizar"]);
+        }
+       
+    }
+    
+
 }

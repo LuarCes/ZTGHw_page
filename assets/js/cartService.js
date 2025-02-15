@@ -12,7 +12,6 @@ function actualizarContadorCarrito() {
 function agregarAlCarrito(producto, cantidadIngresada = 1) {
     try {
         let productosEnCarrito = JSON.parse(localStorage.getItem('productos')) || [];
-        let cantidades = JSON.parse(localStorage.getItem('cantidades')) || {};
         let productoExistente = productosEnCarrito.find(p => p.id === producto.id);
         let indice = 0; // Inicializamos el índice
 
@@ -30,10 +29,7 @@ function agregarAlCarrito(producto, cantidadIngresada = 1) {
         producto.indice = indice; // Asignamos el índice al producto
         localStorage.setItem('productos', JSON.stringify(productosEnCarrito));
 
-        // Creamos el identificador único
-        const idUnico = `${producto.id}-${indice}`;
-        cantidades[idUnico] = (cantidades[idUnico] || 0) + cantidadIngresada;
-        localStorage.setItem('cantidades', JSON.stringify(cantidades));
+       
 
         actualizarContadorCarrito();
     } catch (error) {
@@ -46,8 +42,9 @@ function mostrarCarrito() {
     try {
         const productosEnCarrito = JSON.parse(localStorage.getItem('productos')) || [];
         const carritoProductos = document.getElementById('carrito-productos'); 
-
-        carritoProductos.innerHTML = '';
+        
+        // 🔄 BORRAR contenido viejo antes de volver a renderizar
+        carritoProductos.innerHTML = ''; 
 
         productosEnCarrito.forEach(producto => {
             console.log('Producto:', producto);
@@ -61,19 +58,21 @@ function mostrarCarrito() {
                     <td><img src="${urlImagen}" width="50"></td> 
                     <td>${producto.nombre}</td>
                     <td class="precio">$${producto.precio}</td> 
-                    <td><input class="contador" type="number" value="1" min="1" max="${producto.stock}" onchange="actualizarTotal(this, ${producto.precio},${producto.stock})">
+                    <td><input class="contador" type="number" value="${producto.cantidad}" min="1" max="${producto.stock}" data-id="${producto.id}" onchange="actualizarTotal(this, ${producto.precio},${producto.stock})">
                     <span>(Stock: ${producto.stock})</span></td> 
                     
-                    <td class="total">$${producto.precio}</td> `;
-                   
+                    <td class="total">$${producto.precio * producto.cantidad}</td> `; // 🔄 REFLEJAR CAMBIO EN LA INTERFAZ
+                
                 carritoProductos.appendChild(nuevaFila);
             }
         });
+
         actualizarTotalPagar();
         actualizarContadorCarrito(); 
     } catch (error) {
         console.error('Error al mostrar el carrito:', error);
     }
+
 }
 
 function actualizarTotal(input, precio, stock) {
@@ -82,25 +81,48 @@ function actualizarTotal(input, precio, stock) {
     if (cantidad > stock) cantidad = stock;
 
     input.value = cantidad;
-
-    let cantidades = JSON.parse(localStorage.getItem('cantidades')) || {};
     let idProducto = input.dataset.id;
-    let indice = input.dataset.indice;
 
-    indice = indice === undefined ? 0 : indice;
-    
-    const idUnico = `${idProducto}-${indice}`;
-    cantidades[idUnico] = cantidad;
-
-    localStorage.setItem('cantidades', JSON.stringify(cantidades));
-
+    // Actualizar el total en la fila
     let fila = input.closest('tr');
     let celdaTotal = fila.querySelector('.total');
     let nuevoTotal = precio * cantidad;
     celdaTotal.textContent = `$${nuevoTotal.toFixed(2)}`;
 
     actualizarTotalPagar();
+
+    // Enviar la actualización a la base de datos
+    let formData = new FormData();
+    formData.append("id", idProducto);
+    formData.append("cantidad", cantidad);
+
+    fetch(base_url() + "/index.php/abmArticulos/actualizar_carrito?nocache=" + new Date().getTime(), {
+        method: "POST",
+        body: formData
+    })
+    .then(response => response.json())
+.then(data => {
+    if (data.success) {
+        console.log("Cantidad actualizada en la base de datos.");
+        
+        // 🔄 ACTUALIZAR localStorage con la nueva cantidad
+        let productosEnCarrito = JSON.parse(localStorage.getItem('productos')) || [];
+        let producto = productosEnCarrito.find(p => p.id === idProducto);
+        if (producto) {
+            producto.cantidad = cantidad;
+            localStorage.setItem('productos', JSON.stringify(productosEnCarrito));
+        }
+
+        // 🔄 REFRESCAR la vista del carrito
+        mostrarCarrito();
+    } else {
+        console.error("Error al actualizar cantidad:", data.error);
+    }
+})
+.catch(error => console.error("Error en la petición:", error));
 }
+
+
 
 
 

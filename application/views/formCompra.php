@@ -22,7 +22,7 @@
     <div class="contenedor-form">
       
       <div class="datos-comprador">
-        <form method='POST' action="<?= base_url(); ?>index.php/enviarForm">
+        <form action="<?= base_url(); ?>index.php/enviarForm" method="POST">
             <h3>Datos del comprador / Forma de entrega</h3>
             <div class="datos-comp">
               <label for="nombre">Nombre*</label>
@@ -43,9 +43,11 @@
               <label for="exampleTextarea">Mensaje</label>
               <textarea class="form-control" name='mensaje' id="mensaje" rows="3"></textarea>
             </div>
+
+          <input type="hidden" name="productos" id="productos">
             
             <div class="datos-comp">
-              <button class="btn btn-primary" type="submit" name="enviar">Enviar</button>
+              <button class="btn btn-primary" type="submit" name="enviar" onclick="enviarFormulario()">Confirmar compra</button>
             </div>
             </form>
       </div>
@@ -90,7 +92,11 @@
       window.onload = function() {
             mostrarCarritoForm();
         };
+
     </script>
+
+
+
    
 </body>
 
