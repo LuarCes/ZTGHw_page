@@ -16,8 +16,8 @@
     <script>
         $(document).ready(function () {
                 $(".buscador input").on("keypress", function (e) {
-                    if (e.which === 13) { // Código 13 = tecla Enter
-                        var busqueda = $(this).val().trim(); // Obtiene el texto ingresado
+                    if (e.which === 13) {
+                        var busqueda = $(this).val().trim(); 
 
                         if (busqueda !== "") {
                             window.location.href = "<?= base_url(); ?>index.php/buscarProducto/" + encodeURIComponent(busqueda);
@@ -42,7 +42,15 @@
                     <li><a href="<?= base_url(); ?>index.php/bienvenida">Inicio</a></li>
                     <li><a href="<?= base_url(); ?>index.php/nuestrosProductos" >Productos</a></li>
                     <li><a href="<?= base_url(); ?>index.php/contacto" >Contacto</a></li>
-                    <li><a href="<?= base_url(); ?>index.php/verCarrito" ><img src="<?= base_url('assets/images/carrito.png') ?>" width="40%"><span class="cuenta-carrito">0</span></a></li>
+
+
+                    <li class="carrito-container">
+                        <a href="<?= base_url(); ?>index.php/verCarrito" >
+                            <i class="fa-solid fa-cart-shopping carrito-icon"></i>
+                        <span class="cuenta-carrito">0</span>
+                        </a>
+                    </li>
+                
                 </ul>
             </div> 
     </header>

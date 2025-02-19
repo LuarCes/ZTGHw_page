@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="<?= base_url(); ?>assets/css/carrito.css">
     <link rel="stylesheet" href="<?= base_url(); ?>assets/css/inicio.css">
     <link rel="stylesheet" href="<?= base_url(); ?>assets/css/formCompra.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+
     <script src="<?= base_url(); ?>assets/js/carrito.js?v=<?= time(); ?>" defer></script>
 
 
@@ -75,7 +77,7 @@
           </div> 
 
           <div class="total-pagar">
-            <p> Total a pagar : $<span id="total-pagar">0.00</span> </p>
+            <p> Total a pagar : <span id="total-pagar">0.00</span> </p>
           </div>
       </div>
 

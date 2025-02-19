@@ -35,25 +35,25 @@
 
        <div class="small-banner">
             <div class="cuadrado" id="cuotas">
-                <img src="<?= base_url('assets/images/pagos.png') ?>" width="20%">
+                <img src="<?= base_url('assets/images/pagos.png') ?>" width="60px">
                 <p>Podés elegir entre múltiples medios de pago</p>
             </div>
             <div class="cuadrado" id="descuento">
-                <img src="<?= base_url('assets/images/promocion.png') ?>" width="20%">
+                <img src="<?= base_url('assets/images/promocion.png') ?>" width="60px">
                 <p>¡Consulta por precios mayoristas!</p>
             </div>
             <div class="cuadrado" id="envios">
-                <img src="<?= base_url('assets/images/shipped_411763.png') ?>" width="20%">
+                <img src="<?= base_url('assets/images/shipped_411763.png') ?>" width="60px">
                 <p>Envíos a todo el país</p>
             </div>
             <div class="cuadrado" id="atencion">
-                <img src="<?= base_url('assets/images/atencion.png') ?>" width="20%">
+                <img src="<?= base_url('assets/images/atencion.png') ?>" width="60px">
                 <p>Contactanos Lun-Vier de 14:30 a 19:00hs y Sáb de 13 a 17hs</p>
             </div>
        </div>
 
        <div class="que-buscas">
-            <h2>¿Qué estás buscando?</h2>
+            <h1 class="titulos">🔍 ¿Qué estás buscando? 🔎</h1>
             <div class="tabla">
                 <table >
                     <tr class="fila" >
@@ -106,7 +106,7 @@
        </div>
 
        <div class="destacados">
-        <h2>Destacados</h2>
+        <h1 class="titulos">🌟 Destacados 🌟</h1>
         <div class="wrapper">
             <i id="left" class="fa-solid fa-angle-left"></i>
             <ul class="carousel">

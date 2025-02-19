@@ -111,6 +111,7 @@ form button:hover {
 
 .tarj-asesores{
     width: 90%;
+    height: auto;
     display: flex;
     margin-top: 5%;
     margin-bottom: 5%;
@@ -129,6 +130,13 @@ form button:hover {
     border-radius: 10%;
     padding: 4%;
 }
+
+
+.asesor p{
+    width: inherit;
+    height: inherit;
+}
+
 
 .asesor img{
     margin-left: 0;

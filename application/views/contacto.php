@@ -11,7 +11,10 @@
 
     <link rel="stylesheet" href="<?= base_url(); ?>assets/css/inicio.css">
     <link rel="stylesheet" href="<?= base_url(); ?>assets/css/contacto.css">
+    <link rel="stylesheet" href="<?= base_url(); ?>assets/css/formCompra.css">
+
     <link rel="stylesheet" href="<?= base_url(); ?>assets/css/footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
 
     <script src="<?= base_url(); ?>assets/js/filtro.js" defer></script>
     <script src="<?= base_url(); ?>assets/js/cartService.js" defer></script>
@@ -74,24 +77,29 @@
         </ul> 
         <div class="mapouter-contact" ><div class="gmap_canvas"><iframe class="gmap_iframe" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=400&amp;height=289&amp;hl=en&amp;q=Rivadavia 3188 oficina entrepiso, mar del plata&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe></div><style>.mapouter{position:relative;text-align:right;width:600px;height:289px;}.gmap_canvas {overflow:hidden;background:none!important;width:600px;height:289px;}.gmap_iframe {width:600px!important;height:289px!important;}</style></div>
         
+
+        <div class="contenedor-form" id="form-contacto">
             <form method='POST' action="<?= base_url(); ?>index.php/enviarForm">
-            <h3>¡Envianos tu consulta!</h3>
-            <div class="primario">
-              <label for="nombre">Nombre</label>
-                <input type="text" class="form-control" name='nombre' id="nombre" placeholder="Nombre...">
-            <label for="email">Email</label>
-                <input type="email" class="form-control" name='email' id="email" placeholder="email...">
-            </div>
-           
+                    <h3>¡Envianos tu consulta!</h3>
 
+                    <div class="datos-comp">
+                        <label for="nombre">Nombre</label>
+                        <input type="text" class="form-control" name='nombre' id="nombre" placeholder="Nombre...">
+                    </div>
+                    <div class="datos-comp">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" name='email' id="email" placeholder="email...">
+                     </div>
 
-            <div class="form-group">
-                <label for="exampleTextarea">Mensaje</label>
-                    <textarea class="form-control" name='mensaje' id="mensaje" rows="3"></textarea>
-            </div>
-           
-            <button class="btn btn-primary" type="submit" name="enviar">Enviar</button>
-        </form>
+                    <div class="datos-comp">
+                        <label for="exampleTextarea">Mensaje</label>
+                            <textarea class="form-control" name='mensaje' id="mensaje" rows="3"></textarea>
+                    </div>
+                
+                    <button class="btn btn-primary" type="submit" name="enviar">Enviar</button>
+            </form>
+        </div>
+            
 
     </div>
 

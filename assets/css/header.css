@@ -1,21 +1,31 @@
 header{
-    width: 100%;
+    width: auto;
     height: auto;
     background: rgb(0,0,0);
     background: linear-gradient(90deg, rgba(0,0,0,1) 20%, rgba(70,69,155,1) 66%, rgba(182,120,255,1) 90%);    
     align-items: center;
     display: flex;
-
+    justify-content: space-between;
+    padding: 20px 5%;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 header a{
-    margin-left: 5%;
+    color: white;
+    font-size: 1.2em;
+    margin-left: 15px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+header a:hover {
+    text-decoration: underline;
 }
 
 .buscador{
-    width: 50%;
+    width: 60%;
     align-items: center;
+    font-size: 1.2em;
 }
 
 
@@ -29,32 +39,38 @@ header a{
 }
 
 .opciones-header{
-    width: 25%;
-    padding-right: 2%;
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .opciones-header ul{
     display: flex;
     list-style: none;
-    font-size: 120%;
-    color: aliceblue;
+    font-size: 1.2rem;
+    align-items: center;
+    
 }
 
 .opciones-header ul li{
-    margin-left: 8%;
+    margin-left: 20px;
 }
 
 
 .cuenta-carrito{
-    color: black;
-    background-color: white;
-    border-radius: 100%;
+    position: absolute;
+    top:-5px;
+    right: -10px;
+    color: white;
+    background-color: #ff0000;
+    font-size:1.2em;
+    border-radius: 50%;
     display: inline-block;
     width: 20px;
     line-height: 20px;
-    aspect-ratio: 1;
     text-align: center;
- 
+    font-weight: bold; 
 }
 
 	
@@ -63,6 +79,26 @@ a{
 }
 
 
+
+
 .btn-salir img{
     filter: invert(1);
+}
+
+
+.carrito-container{
+    position: relative;
+}
+
+.carrito-icon{
+    font-size: 2em;
+    color: white;
+}
+
+.btn-salir i{
+    filter: invert(1);
+}
+
+.btn-salir i:hover{
+    cursor: pointer;
 }

@@ -13,10 +13,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="<?= base_url(); ?>assets/css/muestraArt.css">
-    <link rel="stylesheet" href="<?= base_url(); ?>assets/css/pagCargas.css">
+   
     <link rel="stylesheet" href="<?= base_url(); ?>assets/css/inicio.css">
     <script src="<?= base_url(); ?>assets/js/filtro.js" defer></script>
     <script src="<?= base_url(); ?>assets/js/cartService.js" defer></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+
 
     <title>ZTGHardware - Articulos</title>
 </head>
@@ -25,17 +28,14 @@
 
     <div class="body-catalogo">
 
-        <div class="bannerProd">
-            
-        </div>
-
 
         <div class="contenido" >
 
             <div class="filters">
                 <h2>Filtros</h2>
+                <button class="todos-prod"><a href="<?= base_url(); ?>index.php/nuestrosProductos" >Todos los productos</a></button>
                 <div class="filter-group">
-                    <button class="todos-prod"><a href="<?= base_url(); ?>index.php/nuestrosProductos" >Todos los productos</a></button>
+                    
                     <h3>Ordenar por:</h3>
                     <ul>
                         <li><button id="desc" class="ordenar">Mayor precio</button></li>
@@ -46,16 +46,16 @@
                 <div class="category-group">
                     <h3>Categorias:</h3>
                     <ul>
-                    <li><button id="auri" class="categorizar">Auriculares</button></li>
-                    <li><button id="mouse" class="categorizar">Mouse</button></li>
-                    <li><button id="teclado" class="categorizar">Teclado</button></li>
-                    <li><button id="camara" class="categorizar">Camara</button></li>
-                    <li><button id="parlantes" class="categorizar">Parlantes</button></li>
-                    <li><button id="cables" class="categorizar">Cables</button></li>
-                    <li><button id="vj" class="categorizar">Videojuegos</button></li>
-                    <li><button id="joystick" class="categorizar">Joystick</button></li>
-                    <li><button id="fundas" class="categorizar">Fundas</button></li>
-                    <li><button id="otros" class="categorizar">Otros</button></li>
+                        <li><button id="auri" class="categorizar">Auriculares</button></li>
+                        <li><button id="mouse" class="categorizar">Mouse</button></li>
+                        <li><button id="teclado" class="categorizar">Teclado</button></li>
+                        <li><button id="camara" class="categorizar">Camara</button></li>
+                        <li><button id="parlantes" class="categorizar">Parlantes</button></li>
+                        <li><button id="cables" class="categorizar">Cables</button></li>
+                        <li><button id="vj" class="categorizar">Videojuegos</button></li>
+                        <li><button id="joystick" class="categorizar">Joystick</button></li>
+                        <li><button id="fundas" class="categorizar">Fundas</button></li>
+                        <li><button id="otros" class="categorizar">Otros</button></li>
                     </ul>
                 </div>
             

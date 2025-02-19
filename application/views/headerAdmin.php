@@ -39,8 +39,8 @@
 <script>
         $(document).ready(function () {
                 $(".buscador input").on("keypress", function (e) {
-                    if (e.which === 13) { // Código 13 = tecla Enter
-                        var busqueda = $(this).val().trim(); // Obtiene el texto ingresado
+                    if (e.which === 13) { 
+                        var busqueda = $(this).val().trim(); 
 
                         if (busqueda !== "") {
                             window.location.href = "<?= base_url(); ?>index.php/buscarProducto/" + encodeURIComponent(busqueda);
@@ -64,7 +64,15 @@
                     <li><a href="<?= base_url(); ?>index.php/bienvenida">Inicio</a></li>
                     <li><a href="<?= base_url(); ?>index.php/nuestrosProductos" >Productos</a></li>
                     <li><a href="<?= base_url(); ?>index.php/cargarArticulos" >Administración</a></li>
-                    <li class="btn-salir" id="boton" data-bs-toggle="modal"><img src="<?= base_url('assets/images/apagar.png') ?>" width="30%"></li>
+                    
+                    
+                    <li class="btn-salir" id="boton" data-bs-toggle="modal">
+                        <i class="fas fa-sign-out-alt" style="font-size: 30px;"></i>
+                    </li>
+                
+                
+                
+                
                 </ul>
             </div> 
 

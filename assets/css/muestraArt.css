@@ -2,12 +2,15 @@
     width: 80%;
     height: auto;
     display: flex;
-    padding-top: 5%;
+    padding-top: 3%;
     justify-content: center;
     margin-left: 15%;
 
 }
 
+h2,h3{
+  color: white;
+}
 
 .categorias{
     width: 15%;
@@ -19,7 +22,7 @@
 .donde-prod{
     width: 75%;
     flex-wrap: wrap;
-   
+   margin-bottom: 5%;
 } 
 
 .card{
@@ -70,14 +73,6 @@
 
 
 
-  table {
-    font-size: 25px;
-    background-color: aliceblue;
-    padding: 5%;
-    border-color: #c5692f;
-  }
-
-
 
 .foto{
     width: 100%;
@@ -125,73 +120,68 @@
 /*------------------------- Filtros ------------------------*/
 .filters {
     width: 15%;
+    height: auto;
+    background-color: rgb(84, 82, 179);
+    padding-left: 3%;
+    padding-right: 3%;
+    padding-top: 10px;
+    padding-bottom: 5%;
+    text-align: left;
+    margin-bottom: 5%;
+  }
+  
+  
+  .filter-group{
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
 
-  }
-  
-  .filter-group {
-    /* Estilos para cada grupo de filtros */
-  }
-  
+
   .filter-group ul {
     list-style: none;
     padding: 0;
+    padding-left: 12%;
+    margin:0;
   }
   
-  .filter-group li {
-    width: 40%;
-    margin-bottom: 5px;
-    text-align: center;
-    border-radius: 30%;
-  }
-
-  .todos-prod{
-    width: 140px;
-    height: 35px;
-    font-size: 16px;
-    color: white;
-    background-color: rgb(182,120,255);
-    cursor: pointer;
-    border: 0;
-  }
-
-  .filter-group li button{
-    width: 140px;
-    height: 35px;
-    font-size: 16px;
-    color: white;
-    background-color: rgb(182,120,255);
-    cursor: pointer;
-    border: 0;
-  }
-
-
   .category-group ul{
     list-style: none;
     padding: 0;
+    padding-left: 12%;
+    margin:0;
   }
 
-  .category-group li{
-    width: 40%;
-    margin-bottom: 5px;
-    text-align: center;
+  .todos-prod{
+    width: 100%;
+    font-size: 16px;
+    cursor: pointer;
+    border: 0;
+    background-color: transparent;
+    color: white;
+    font-size: 1.2em;
+  }
+
+
+
+  .filters li button{
+    width: 100%;
+    height: 35px;
+    font-size: 1.2em;
+    cursor: pointer;
+    border: 0;
+    background-color: transparent;
+    color:white;
+    text-align: left;
     border-radius: 30%;
   }
 
-  .category-group li button{
-    width: 140px;
-    height: 35px;
-    font-size: 16px;
-    color: white;
-    background-color: rgb(182,120,255);
-    cursor: pointer;
-    border: 0;
+
+
+ 
+  .filters button:hover {
+    text-decoration: underline;
   }
   
-  .filter-group a {
-    text-decoration: none;
-    color: #333;
-  }
-  
-  .filter-group a.active {
-    font-weight: bold;
+  .filters button:active{
+    font-weight: bolder;
   }
