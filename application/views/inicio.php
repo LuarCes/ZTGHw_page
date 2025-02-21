@@ -119,9 +119,9 @@
                             <img class="card-img-top" id="img-inicio" src='<?= base_url() . $url_img ?>' alt="Card image" draggable="false">
                             <div class="card-body" id="card-body-inicio">
                                 <h4 class="card-title" id="h4-inicio"> <?= $producto->nombre ?> </h4>
-                                <p class="card-text" id="texto-inicio">Precio : $ <?= $producto->precio ?></p>
+                                <p class="card-text" id="texto-inicio"> Precio : $ <?= number_format($producto->precio, 2, '.', ',') ?></p>
                                 <div class="botones" id="boton-inicio">
-                                    <button type="button" class="btn-agregar" id="boton" onclick='agregarAlCarrito(<?= json_encode($producto) ?>)'>Agregar</button>
+                                    <button type="button" class="btn-agregar" id="boton-<?= $producto->id ?>" onclick='agregarAlCarrito(<?= json_encode($producto) ?>)'>Agregar</button>
                                 </div>
                             </div>
                         </li>

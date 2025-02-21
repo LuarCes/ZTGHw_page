@@ -4,7 +4,6 @@
 function mostrarCarritoForm() {
     try {
         const productosEnCarrito = JSON.parse(localStorage.getItem('productos')) || [];
-        const cantidades = JSON.parse(localStorage.getItem('cantidades')) || {};
         const carritoProductos = document.getElementById('carrito-productos');
 
         carritoProductos.innerHTML = '';
@@ -14,10 +13,9 @@ function mostrarCarritoForm() {
             const nuevaFila = document.createElement('tr');
             nuevaFila.innerHTML = `
                 <td>${producto.nombre}</td>
-                <td class="precio">$${producto.precio}</td>
+                <td class="precio">$${Number(producto.precio).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
                 <td>${producto.cantidad}</td>
-                <td class="total">${(producto.precio * producto.cantidad).toFixed(2)}</td>
-            `;
+                <td class="total">$${(producto.precio * producto.cantidad).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td> `;
 
             carritoProductos.appendChild(nuevaFila);
         });
@@ -37,58 +35,53 @@ function actualizarTotalPagar() {
         totalPagar += producto.precio * producto.cantidad;
     });
 
-    document.getElementById('total-pagar').textContent = `$${totalPagar.toFixed(2)}`;
+    document.getElementById('total-pagar').textContent = `$${totalPagar.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+
 }
 
 document.addEventListener('DOMContentLoaded', mostrarCarritoForm);
 
 
-function enviarFormulario(){
+
+
+
+function enviarFormulario() {
     const productosEnCarrito = JSON.parse(localStorage.getItem('productos')) || [];
+    const carritoTexto = JSON.stringify(productosEnCarrito, null, 2);
+    document.getElementById('mensaje').innerHTML = `<pre>${carritoTexto}</pre>`;
+    const carritoProductos = document.getElementById('carrito-productos');
+    carritoProductos.innerHTML = ''; 
 
-    const carritoTexto = JSON.stringify(productosEnCarrito,null,2);
-
-    document.getElementById('mensaje').innerHTML= `<pre>${carritoTexto}</pre>`;
-
-    const carritoProductos = document.getElementById('carrito-productos'); 
-
-
-    
-    carritoProductos.innerHTML = ''; // Limpiar la vista del carrito
-
-    productosEnCarrito.forEach(producto => {
-
-        if (!producto.eliminado) {
+    const promesas = productosEnCarrito
+        .filter(producto => !producto.eliminado)  
+        .map(producto => {
             let formData = new FormData();
             formData.append("id", producto.id);
             formData.append("cantidad", producto.cantidad);
 
-            // Enviar la solicitud POST al controlador
-            fetch(base_url() + "/index.php/abmCarrito/enviarForm", {
+            return fetch(base_url() + "/index.php/abmCarrito/enviarForm", {
                 method: "POST",
                 body: formData
             })
-            .then(response => response.json()) // Asegúrate de que el servidor devuelva JSON
-            .then(data => {
-                if (data.success) {
-                    console.log("Cantidad actualizada en la base de datos.");
-                    
-                    // ACTUALIZAR localStorage con la nueva cantidad (si el stock se ha actualizado)
-                    let productosEnCarrito = JSON.parse(localStorage.getItem('productos')) || [];
-                    let producto = productosEnCarrito.find(p => p.id === producto.id);
-                    if (producto) {
-                        producto.cantidad = producto.cantidad - data.cantidadRestada; // restamos la cantidad comprada
-                        localStorage.setItem('productos', JSON.stringify(productosEnCarrito));
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        mostrarCarrito();
+                        return true;
+                    } else {
+                        console.error(`❌ Error al actualizar cantidad:`, data.error);
+                        return false;
                     }
-                    
-                    // REFRESCAR la vista del carrito
-                    mostrarCarrito();
-                } else {
-                    console.error("Error al actualizar cantidad:", data.error);
-                }
-            })
-            .catch(error => console.error("Error en la petición:", error));
-        }
-    });
+                })
+                .catch(error => {
+                    console.error(`⚡ Error en la petición:`, error);
+                    return false;
+                });
+        });
 }
+
+
+
+
+
 

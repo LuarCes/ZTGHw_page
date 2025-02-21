@@ -13,7 +13,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="<?= base_url(); ?>assets/css/muestraArt.css">
-   
     <link rel="stylesheet" href="<?= base_url(); ?>assets/css/inicio.css">
     <script src="<?= base_url(); ?>assets/js/filtro.js" defer></script>
     <script src="<?= base_url(); ?>assets/js/cartService.js" defer></script>
@@ -70,11 +69,11 @@
                         <img class="card-img-top" src='<?= base_url().$url_img?>' alt="Card image" >
                         <div class="card-body">
                             <h4 class="card-title"> <?=  $producto->nombre  ?> </h4>
-                            <p class="card-text">Precio : $ <?=  $producto->precio  ?></p> 
+                            <p class="card-text"> Precio : $ <?= number_format($producto->precio, 2, '.', ',') ?></p> 
                             <p>Stock: <?=  $producto->stock  ?> </p>
                         </div>
                         <div class="div-btn">
-                            <button type="button" class="btn-agregar" id="boton" onclick='agregarAlCarrito(<?= json_encode($producto) ?>)'>Agregar</button>
+                            <button type="button" class="btn-agregar" id="boton-<?= $producto->id ?>" onclick='agregarAlCarrito(<?= json_encode($producto) ?>)'>Agregar</button>
                         </div>
                     </div>
 

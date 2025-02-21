@@ -13,25 +13,16 @@ function agregarAlCarrito(producto, cantidadIngresada = 1) {
     try {
         let productosEnCarrito = JSON.parse(localStorage.getItem('productos')) || [];
         let productoExistente = productosEnCarrito.find(p => p.id === producto.id);
-        let indice = 0; // Inicializamos el índice
+        
 
         if (!productoExistente) {
+            producto.cantidad = cantidadIngresada;
             productosEnCarrito.push(producto);
-        } else {
-            // Si el producto ya existe, buscamos el último índice utilizado y lo incrementamos
-            let productosRepetidos = productosEnCarrito.filter(p => p.id === producto.id);
-            if (productosRepetidos.length > 0) {
-                let indicesUsados = productosRepetidos.map(p => p => p.indice || 0); // Manejar undefined
-                indice = Math.max(...indicesUsados) + 1;
-            }
+            localStorage.setItem('productos', JSON.stringify(productosEnCarrito));
         }
 
-        producto.indice = indice; // Asignamos el índice al producto
-        localStorage.setItem('productos', JSON.stringify(productosEnCarrito));
-
-       
-
         actualizarContadorCarrito();
+        cambiarBotonACarrito(producto.id);
     } catch (error) {
         console.error('Error al agregar al carrito:', error);
     }
@@ -55,13 +46,13 @@ function mostrarCarrito() {
                 const nuevaFila = document.createElement('tr');
                 nuevaFila.innerHTML = `
                     <td><button class="eliminar" onclick='eliminarProducto(this)'><img src="${binIconUrl}" width="30" alt="Eliminar"></button></td> 
-                    <td><img src="${urlImagen}" width="50"></td> 
-                    <td>${producto.nombre}</td>
-                    <td class="precio">$${producto.precio}</td> 
-                    <td><input class="contador" type="number" value="${producto.cantidad}" min="1" max="${producto.stock}" data-id="${producto.id}" onchange="actualizarTotal(this, ${producto.precio},${producto.stock})">
-                    <span>(Stock: ${producto.stock})</span></td> 
+                    <td class="img-carrito"><img src="${urlImagen}" width="50"></td> 
+                    <td class="nom-carrito">${producto.nombre}</td>
+                    <td class="precio">$${Number(producto.precio).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
+                    <td class="cant-carrito"><input class="contador" type="number" value="${producto.cantidad}" min="1" max="${producto.stock}" data-id="${producto.id}" onchange="actualizarTotal(this, ${producto.precio},${producto.stock})">
+                    <br><span class="stock-carrito">(Stock: ${producto.stock})</span></td> 
                     
-                    <td class="total">$${producto.precio * producto.cantidad}</td> `; // 🔄 REFLEJAR CAMBIO EN LA INTERFAZ
+                    <td class="total">$${(producto.precio * producto.cantidad).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td> `;
                 
                 carritoProductos.appendChild(nuevaFila);
             }
@@ -87,7 +78,7 @@ function actualizarTotal(input, precio, stock) {
     let fila = input.closest('tr');
     let celdaTotal = fila.querySelector('.total');
     let nuevoTotal = precio * cantidad;
-    celdaTotal.textContent = `$${nuevoTotal.toFixed(2)}`;
+    celdaTotal.textContent = `$${nuevoTotal.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
 
     actualizarTotalPagar();
 
@@ -151,14 +142,42 @@ function actualizarTotalPagar() {
 
     filas.forEach(fila => {
         const cantidadInput = fila.querySelector('.contador');
-        const precio = parseFloat(fila.querySelector('.precio').textContent.replace('$', ''));
+        const precio = parseFloat(
+            fila.querySelector('.precio').textContent
+                .replace(/\$/g, '')  // Saca el signo $
+                .replace(/,/g, '')   // Saca las comas
+        );
         const cantidad = parseInt(cantidadInput.value);
 
         totalPagar += precio * cantidad;
     });
 
-    document.getElementById('total-pagar').textContent = `$${totalPagar.toFixed(2)}`;
+    document.getElementById('total-pagar').textContent = 
+        `$${totalPagar.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
 }
 
 
 
+function cambiarBotonACarrito(idProducto) {
+    const boton = document.getElementById(`boton-${idProducto}`);
+    if (boton) {
+        boton.textContent = 'En carro 🛒';
+        boton.style.backgroundColor = 'green';
+        boton.style.color = 'white';
+        boton.disabled = true; 
+    }
+}
+
+
+function revisarBotonesCarrito() {
+    const productosEnCarrito = JSON.parse(localStorage.getItem('productos')) || [];
+    productosEnCarrito.forEach(producto => {
+        cambiarBotonACarrito(producto.id); 
+    });
+}
+
+window.onload = function() {
+    mostrarCarrito();
+    actualizarContadorCarrito();
+    revisarBotonesCarrito(); 
+};

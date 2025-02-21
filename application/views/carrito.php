@@ -34,13 +34,13 @@
                 <th id="img-col" width="8%">
                     <p>Imagen</p>
                 </th>
-                <th id="prod-col">
+                <th id="prod-col" width="40%">
                     <p>Producto</p>
                 </th>
-                <th id="precio-col">
+                <th id="precio-col" width="10%">
                     <p>Precio</p>
                 </th>
-                <th id="cant-col" width="10%">
+                <th id="cant-col" width="11%">
                     <p>Cantidad</p>
                 </th>
                 <th id="total-col">

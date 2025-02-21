@@ -159,12 +159,14 @@ h2,h3{
     background-color: transparent;
     color: white;
     font-size: 1.2em;
+    border-radius: 10px;
   }
 
 
 
+
   .filters li button{
-    width: 100%;
+    width: 80%;
     height: 35px;
     font-size: 1.2em;
     cursor: pointer;
@@ -172,7 +174,7 @@ h2,h3{
     background-color: transparent;
     color:white;
     text-align: left;
-    border-radius: 30%;
+    border-radius: 10px;
   }
 
 
@@ -180,6 +182,7 @@ h2,h3{
  
   .filters button:hover {
     text-decoration: underline;
+    background-color: rgb(182,120,255) ;
   }
   
   .filters button:active{

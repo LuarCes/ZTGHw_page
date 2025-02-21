@@ -79,19 +79,19 @@
         
 
         <div class="contenedor-form" id="form-contacto">
-            <form method='POST' action="<?= base_url(); ?>index.php/enviarForm">
+            <form method='POST' >
                     <h3>¡Envianos tu consulta!</h3>
 
-                    <div class="datos-comp">
+                    <div class="datos-comp" id="input-contacto">
                         <label for="nombre">Nombre</label>
                         <input type="text" class="form-control" name='nombre' id="nombre" placeholder="Nombre...">
                     </div>
-                    <div class="datos-comp">
+                    <div class="datos-comp" id="input-contacto">
                         <label for="email">Email</label>
                         <input type="email" class="form-control" name='email' id="email" placeholder="email...">
                      </div>
 
-                    <div class="datos-comp">
+                    <div class="datos-comp" id="input-contacto">
                         <label for="exampleTextarea">Mensaje</label>
                             <textarea class="form-control" name='mensaje' id="mensaje" rows="3"></textarea>
                     </div>

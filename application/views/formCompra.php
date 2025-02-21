@@ -46,10 +46,11 @@
               <textarea class="form-control" name='mensaje' id="mensaje" rows="3"></textarea>
             </div>
 
-          <input type="hidden" name="productos" id="productos">
+            <input type="hidden" name="productos" id="productos">
+
             
             <div class="datos-comp">
-              <button class="btn btn-primary" type="submit" name="enviar" onclick="enviarFormulario()">Confirmar compra</button>
+              <button class="btn btn-primary" type="submit" name="enviar" >Confirmar compra</button>
             </div>
             </form>
       </div>
@@ -94,6 +95,23 @@
       window.onload = function() {
             mostrarCarritoForm();
         };
+
+
+
+       
+        document.querySelector('form').addEventListener('submit', function (e) {
+          const carrito = JSON.parse(localStorage.getItem('productos')) || [];
+
+          if (carrito.length > 0) {
+            document.getElementById('productos').value = JSON.stringify(carrito);
+    
+          } else {
+            e.preventDefault();
+            alert('El carrito está vacío.');
+          }
+        });
+
+        
 
     </script>
 

@@ -32,15 +32,41 @@ class AbmCarrito extends CI_Controller {
 		$this->load->view('footer');
 	}
 
-	public function enviarForm(){
-		
+	public function enviarForm() {
+		$this->load->model('Articulo');
 	
-		// Confirmación de la compra
-		$msj['msj'] = 'Compra confirmada. Stock actualizado.';
-		$this->load->view('header', $msj);
-		$this->load->view('compraConfirm');
-		$this->load->view('footer');
-    }
+		$productosJSON = $this->input->post('productos');
+		$productos = json_decode($productosJSON, true);
+	
+		if (empty($productos)) {
+			return;
+		}
+	
+		$errores = [];
+		foreach ($productos as $producto) {
+			$id = $producto['id'] ?? null;
+			$cant = $producto['cantidad'] ?? null;
+	
+			if (!isset($id, $cant) || !is_numeric($id) || !is_numeric($cant)) {
+				$errores[] = "Datos inválidos para el producto con ID $id.";
+				continue;
+			}
+	
+			$resultado = $this->Articulo->actualizarCantPostCompra($id, $cant);
+			if (!$resultado) {
+				$errores[] = "No se pudo actualizar el stock para el producto con ID $id.";
+			}
+		}
+	
+		if (empty($errores)) {
+			$this->load->view('header', ['msj' => 'Compra confirmada. Stock actualizado.']);
+			$this->load->view('compraConfirm');
+			$this->load->view('footer');
+		} else {
+			echo json_encode(["success" => false, "errores" => $errores]);
+		}
+	}
+	
     
 		
 
