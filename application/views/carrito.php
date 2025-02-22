@@ -53,7 +53,7 @@
 
     <div class="total-pagar">
         <p> Total a pagar : <span id="total-pagar">0.00</span> </p>
-        <button><a href="<?= base_url(); ?>index.php/verForm">Finalizar compra</a></button>
+        <button id="finalizar-compra-btn"><a href="<?= base_url(); ?>index.php/verForm">Finalizar compra</a></button>
     </div>
 
 
@@ -65,7 +65,29 @@
 
         const binIconUrl = "<?= base_url('assets/images/bin1.png') ?>";
         const baseUrl="<?= base_url(); ?>";
+
+
+        document.getElementById('finalizar-compra-btn').addEventListener('click', function (event) {
+        const totalTexto = document.getElementById('total-pagar').textContent.replace(/\$/g, '').replace(/,/g, '');
+        const total = parseFloat(totalTexto);
+
+        const productos = JSON.parse(localStorage.getItem('productos')) || [];
+        const cantidadTotal = productos.reduce((acum, producto) => acum + parseInt(producto.cantidad), 0);
+
+       
+        if (total < 100000 || cantidadTotal < 12) {
+            event.preventDefault(); 
+
+            let mensaje = '⚠️ Para finalizar la compra:\n';
+            if (total < 100000) mensaje += '- El total debe ser de al menos $100.000.\n';
+            if (cantidadTotal < 12) mensaje += '- Debe haber al menos 12 unidades en el carrito.';
+
+            alert(mensaje);
+        }
+    });
     </script>
+
+
 
 </body>
 

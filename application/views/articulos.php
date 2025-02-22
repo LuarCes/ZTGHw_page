@@ -73,7 +73,7 @@
                             <p>Stock: <?=  $producto->stock  ?> </p>
                         </div>
                         <div class="div-btn">
-                            <button type="button" class="btn-agregar" id="boton-<?= $producto->id ?>" onclick='agregarAlCarrito(<?= json_encode($producto) ?>)'>Agregar</button>
+                            <button type="button" class="btn-agregar" id="boton-<?= $producto->id ?>" data-stock="<?= $producto->stock ?>" onclick='agregarAlCarrito(<?= json_encode($producto) ?>)'>Agregar</button>
                         </div>
                     </div>
 
@@ -89,6 +89,9 @@
 
     </div>
 
+
+
+    
 </body>
 
 </html>

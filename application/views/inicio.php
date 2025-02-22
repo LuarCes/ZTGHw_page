@@ -121,7 +121,7 @@
                                 <h4 class="card-title" id="h4-inicio"> <?= $producto->nombre ?> </h4>
                                 <p class="card-text" id="texto-inicio"> Precio : $ <?= number_format($producto->precio, 2, '.', ',') ?></p>
                                 <div class="botones" id="boton-inicio">
-                                    <button type="button" class="btn-agregar" id="boton-<?= $producto->id ?>" onclick='agregarAlCarrito(<?= json_encode($producto) ?>)'>Agregar</button>
+                                    <button type="button" class="btn-agregar" id="boton-<?= $producto->id ?>" data-stock="<?= $producto->stock ?>" onclick='agregarAlCarrito(<?= json_encode($producto) ?>)'>Agregar</button>
                                 </div>
                             </div>
                         </li>

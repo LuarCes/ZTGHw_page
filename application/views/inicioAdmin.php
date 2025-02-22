@@ -29,18 +29,16 @@
                 <h2>Ingresa tus datos</h2>
 
                 <form action="<?= base_url(); ?>inicioAdmin/ValidarUsuarioAdmin" method="POST">
-                  <!-- 2 column grid layout with text inputs for the first and last names -->
                   <div class="datos-form">
                   <label class="form-label" for="form3Example3">Administrador : </label>
                     <input type="text" name="name" id="admin-user" class="form-control" />
                   
-                  <label class="form-label" for="form3Example4">Contraseña  : </label>
+                  <label class="form-label" for="form3Example4">Contraseña  &nbsp;&nbsp;&nbsp;&nbsp;: </label>
                     <input type="password" name="pass" id="admin-pass" class="form-control" />
                     
                   </div>
                   
                   <h4> <?php echo($msj); ?> </h4>
-                  <!-- Submit button -->
                   <button type="submit" class="btn btn-primary btn-block mb-4" id="boton">
                     Iniciar Sesión 
                   </button>

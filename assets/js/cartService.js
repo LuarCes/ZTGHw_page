@@ -144,8 +144,8 @@ function actualizarTotalPagar() {
         const cantidadInput = fila.querySelector('.contador');
         const precio = parseFloat(
             fila.querySelector('.precio').textContent
-                .replace(/\$/g, '')  // Saca el signo $
-                .replace(/,/g, '')   // Saca las comas
+                .replace(/\$/g, '')  
+                .replace(/,/g, '')   
         );
         const cantidad = parseInt(cantidadInput.value);
 
@@ -181,3 +181,19 @@ window.onload = function() {
     actualizarContadorCarrito();
     revisarBotonesCarrito(); 
 };
+
+
+function revisarStockProductos() {
+    const botones = document.querySelectorAll('[id^="boton-"]');
+    botones.forEach(boton => {
+        const stock = parseInt(boton.getAttribute('data-stock'));
+        if (stock <= 0) {
+            boton.textContent = 'Sin stock 😢';
+            boton.style.backgroundColor = 'red';
+            boton.style.color = 'white';
+            boton.disabled = true;
+        }
+    });
+}
+
+window.addEventListener('load', revisarStockProductos);

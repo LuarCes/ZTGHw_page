@@ -19,7 +19,7 @@ class InicioAdmin extends CI_Controller {
 
 	public function ValidarUsuarioAdmin(){
 
-		$name = $this->input->post('name', true); // Utiliza 'true' para limpiar los datos
+		$name = $this->input->post('name', true);
         $pass = $this->input->post('pass', true);
 	   
 		$this->load->model('Logeo');
@@ -39,7 +39,9 @@ class InicioAdmin extends CI_Controller {
 		}
 		else {
 			$msj['msj'] = 'Usuario o contraseña incorrectos.';
+			$this->load->view('header');
             $this->load->view('ups', $msj);
+			$this->load->view('footer');
 		}
 	}
 

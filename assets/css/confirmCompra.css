@@ -18,6 +18,14 @@
     border-bottom-left-radius: 25px;
 }
 
+
+
+
+#izq-ups{
+    background-image: url(../images/noAdmin.png);
+}
+
+
 .derecha{
     width: 25%;
     background-color: white;
@@ -27,6 +35,11 @@
     border-top-right-radius: 25px;
     border-bottom-right-radius: 25px;
 }
+
+#der-ups{
+    padding-top: 200px;
+}
+
 
 #gracias{
     padding: 0;
@@ -65,6 +78,12 @@
     margin-left: 10%;
     margin-bottom: 20px;
 }
+
+
+#bot-ups a{
+    font-size: 20px;
+}
+
 
 .botones a:hover{
     background: rgb(182,120,255);

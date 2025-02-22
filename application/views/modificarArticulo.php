@@ -6,21 +6,21 @@
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="<?= base_url(); ?>assets/css/pagCargas.css">
+    
     <link rel="stylesheet" href="<?= base_url(); ?>assets/css/inicio.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+
 
     <title>ZTG Hardware - Mod Articulo</title>
 </head>
 <body>
-    <div class="bodyModArt" id="mArticulos">
+    <div class="seccion-mod">
 
-        <h1 class="titulo" align="center">Modificar Artículo</h1>
-      
+        <h1>Modificar Articulo</h1>
 
-        <div class="cuadros-mod">
-
-            <div class="cuadro-izq">
-
-                <h3 align="center">Datos actuales</h3>
+        <div class="cuadros">
+            <div class="art-izq">
+                <h2 align="center">Datos actuales</h2>
                 <p>Código&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <?= $articulo->id; ?> </p>
                 <p>Artículo&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <?= $articulo->nombre; ?> </p>
                 <p>Descripción: <?= $articulo->descripcion; ?> </p>
@@ -28,13 +28,9 @@
                 <p>Stock&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <?= $articulo->stock; ?> </p>
                 <p>Categoria&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <?= $articulo->categoria; ?> </p>
                 <?php $id = $articulo->id; ?>
-
             </div>
-
-
-            <div class="cuadro-der" align="center">
-                <div class="form">
-                    <h3 align="center">Datos nuevos</h3>
+            <div class="art-der">
+            <h3 align="center">Datos nuevos</h3>
                         <form action="<?= base_url(); ?>AbmArticulos/modificarArticulo/<?= $id ?>" method="POST" enctype="multipart/form-data">
                         <p>Código &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: 
                         <input type="text" name="idNuevo" placeholder="Id" maxlength="40"></p>
@@ -67,18 +63,10 @@
                         </p>
                             <input type="submit" value="Modificar artículo" class="btn btn-dark" id="boton" >
                         </form>     
-                </div>
-
             </div>
-
         </div>
-            
-
 
     </div>
-
-
-                    
-    </div>
+       
 </body>
 </html>
