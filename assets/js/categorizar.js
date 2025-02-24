@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
       th.addEventListener('click', (event) => {
           event.preventDefault();
 
-          // Buscar el enlace dentro del <th>
+          
           const link = th.querySelector('.categorizar');
           if (!link) return; 
 

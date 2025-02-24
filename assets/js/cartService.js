@@ -34,7 +34,7 @@ function mostrarCarrito() {
         const productosEnCarrito = JSON.parse(localStorage.getItem('productos')) || [];
         const carritoProductos = document.getElementById('carrito-productos'); 
         
-        // 🔄 BORRAR contenido viejo antes de volver a renderizar
+        
         carritoProductos.innerHTML = ''; 
 
         productosEnCarrito.forEach(producto => {
@@ -74,7 +74,7 @@ function actualizarTotal(input, precio, stock) {
     input.value = cantidad;
     let idProducto = input.dataset.id;
 
-    // Actualizar el total en la fila
+   
     let fila = input.closest('tr');
     let celdaTotal = fila.querySelector('.total');
     let nuevoTotal = precio * cantidad;
@@ -82,7 +82,7 @@ function actualizarTotal(input, precio, stock) {
 
     actualizarTotalPagar();
 
-    // Enviar la actualización a la base de datos
+   
     let formData = new FormData();
     formData.append("id", idProducto);
     formData.append("cantidad", cantidad);
@@ -96,7 +96,7 @@ function actualizarTotal(input, precio, stock) {
     if (data.success) {
         console.log("Cantidad actualizada en la base de datos.");
         
-        // 🔄 ACTUALIZAR localStorage con la nueva cantidad
+       
         let productosEnCarrito = JSON.parse(localStorage.getItem('productos')) || [];
         let producto = productosEnCarrito.find(p => p.id === idProducto);
         if (producto) {
@@ -104,7 +104,7 @@ function actualizarTotal(input, precio, stock) {
             localStorage.setItem('productos', JSON.stringify(productosEnCarrito));
         }
 
-        // 🔄 REFRESCAR la vista del carrito
+       
         mostrarCarrito();
     } else {
         console.error("Error al actualizar cantidad:", data.error);

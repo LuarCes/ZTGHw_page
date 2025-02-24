@@ -15,7 +15,7 @@
     <script src="<?= base_url(); ?>assets/js/cartService.js" defer></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-    <title>ZTG Hardware - Inicio</title>
+    <title>ZTGHardware - Inicio</title>
     
 </head>
 <body>
@@ -29,7 +29,7 @@
             <div class="info">
                 <h1 class="titulo-banner">Bienvenidos a ZTG Hardware</h1>
                 <p>Somos una distribuidora marplatense con el objetivo de ofrecerte los mejores precios y productos del mercado</p> 
-                <p>¡Consulta nuestro catálogo mayorista y arma tu PC ideal!</p>
+                <p>¡CONSULTA NUESTRO CATÁLOGO MAYORISTA!</p>
             </div>
        </nav>
 

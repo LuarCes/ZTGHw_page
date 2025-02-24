@@ -10,7 +10,7 @@
 
     <link rel="stylesheet" href="<?= base_url(); ?>assets/css/admin.css">
 
-    <title>ZTG Hardware - Administradores</title>
+    <title>ZTGHardware - Administradores</title>
 </head>
 <body>
     
@@ -52,14 +52,12 @@
               
 
               </div> 
-              
+            </div>
+
             </div>
           </div>
-        </div>
-      </div>
     </div>
   </div>
-</div>
 </section>
 
 </body>

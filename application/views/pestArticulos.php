@@ -25,7 +25,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Calistoga&display=swap" rel="stylesheet">
     <style>@import url('https://fonts.googleapis.com/css2?family=Calistoga&display=swap');</style>
 
-    <title>ZTG Hardware - Articulos</title>
+    <title>ZTGHardware - Articulos</title>
 </head>
   
 <body>
@@ -161,16 +161,14 @@
 <script>
     $(document).ready(function () {
         $(document).on('click', '.btn-primary[data-bs-toggle="modal"]', function (event) {
-            event.preventDefault(); // Evita que el modal Bootstrap se abra
+            event.preventDefault(); 
 
             
 
-            var articuloId = $(this).data('articulo-id'); // Obtiene el ID del artículo
-            var articuloNombre = $(this).data('articulo-nombre'); // Obtiene el nombre del artículo
+            var articuloId = $(this).data('articulo-id'); 
+            var articuloNombre = $(this).data('articulo-nombre'); 
 
         
-
-            // Mostrar alerta de confirmación con SweetAlert2
             Swal.fire({
                 title: '¿Estás seguro?',
                 text: 'Vas a eliminar el artículo "' + articuloNombre + '". Esta acción no se puede deshacer.',
@@ -182,7 +180,7 @@
                 cancelButtonText: 'Cancelar'
             }).then((result) => {
                 if (result.isConfirmed) {
-                    // Si el usuario confirma, redirigir a la URL de eliminación
+                    
                     console.log("Redirigiendo a:", '<?= base_url(); ?>AbmArticulos/eliminarArticulo/' + articuloId);
                     window.location.href = '<?= base_url(); ?>AbmArticulos/eliminarArticulo/' + articuloId;
                 }
